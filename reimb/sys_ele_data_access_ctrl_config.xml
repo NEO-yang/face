@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+==================================================
+@创建人: 杨兴财
+@当前维护人: 杨兴财
+@Desc: 我的费用报销单 sys.ele.ctrl.config 预置数据
+==================================================
+-->
+<odoo>
+  <data noupdate="0">
+    <!-- 对申请人的数据权限控制 -->
+    <record id="ps_er.er_expense_ele_data_access_ctrl_config_apply_emp_id" model="sys.ele.ctrl.config">
+      <field name="module_id" search="[('name', '=', 'ps_er')]"/>
+      <field name="model_id" search="[('model', '=', 'er.expense')]"/>
+      <field name="func_name">search_read</field>
+      <field name="biz_name">Search Read</field>
+      <field name="field_id" search="[('name', '=', 'apply_emp_id'), ('model', '=', 'er.expense')]"/>
+      <field name="ctrl_type">document</field>
+      <field name="is_authorize" eval="True"/>
+    </record>
+  </data>
+</odoo>

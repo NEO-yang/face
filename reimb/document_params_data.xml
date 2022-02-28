@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+==================================================
+@创建人 ：杨兴财
+@当前维护人 ：杨兴财
+@Desc: 费用报销单单据参数预置数据
+==================================================
+-->
+<odoo>
+    <data noupdate="1">
+        <!-- 非项目通用费用报销单：项目管控 -->
+        <record id="er_expense_05_mdm_document_params_is_project_ctrl" model="mdm.document.params">
+            <field name="module_id" search="[('name', '=', 'ps_er')]"></field>
+            <field name="corespond_doc_id" ref="er_expense_mdm_document_list"/>
+            <field name="document_type_id" ref="er_expense_mdm_document_type_000005"/>
+            <field name="biz_type_id" ref="er_expense_general_mdm_business_type"/>
+            <field name="key">is_project_ctrl</field>
+            <field name="value">False</field>
+            <field name="data_type">Boolean</field>
+        </record>
+        <!-- 非项目通用费用报销单：事前申请管控 -->
+        <record id="er_expense_05_mdm_document_params_is_request_ctrl" model="mdm.document.params">
+            <field name="module_id" search="[('name', '=', 'ps_er')]"></field>
+            <field name="corespond_doc_id" ref="er_expense_mdm_document_list"/>
+            <field name="document_type_id" ref="er_expense_mdm_document_type_000005"/>
+            <field name="biz_type_id" ref="er_expense_general_mdm_business_type"/>
+            <field name="key">is_request_ctrl</field>
+            <field name="value">False</field>
+            <field name="data_type">Boolean</field>
+        </record>
+        <!-- 非项目通用费用报销单：可选报销事项范围 -->
+        <record id="er_expense_05_mdm_document_params_reimb_item_option" model="mdm.document.params">
+            <field name="module_id" search="[('name', '=', 'ps_er')]"></field>
+            <field name="corespond_doc_id" ref="er_expense_mdm_document_list"/>
+            <field name="document_type_id" ref="er_expense_mdm_document_type_000005"/>
+            <field name="biz_type_id" ref="er_expense_general_mdm_business_type"/>
+            <field name="key">reimb_item_option</field>
+            <field name="value">exclude</field>
+            <field name="data_type">Selection</field>
+        </record>
+        <!-- 非项目通用费用报销单：可选报销事项 排除：差旅费、会议费、业务招待费-->
+        <record id="er_expense_05_mdm_document_params_exp_item_ids" model="mdm.document.params">
+            <field name="module_id" search="[('name', '=', 'ps_er')]"></field>
+            <field name="corespond_doc_id" ref="er_expense_mdm_document_list"/>
+            <field name="document_type_id" ref="er_expense_mdm_document_type_000005"/>
+            <field name="biz_type_id" ref="er_expense_general_mdm_business_type"/>
+            <field name="key">exp_item_ids</field>
+            <field name="value" eval="'_'.join([str(ref('ps_mdm.expense_item_data_09')), str(ref('ps_mdm.expense_item_data_13')), str(ref('ps_mdm.expense_item_data_12'))])"></field>
+            <field name="data_type">Many2many</field>
+        </record>
+        <!-- 非项目通用费用报销单：支持外币业务 -->
+        <record id="er_expense_05_mdm_document_params_is_support_currency" model="mdm.document.params">
+            <field name="module_id" search="[('name', '=', 'ps_er')]"></field>
+            <field name="corespond_doc_id" ref="er_expense_mdm_document_list"/>
+            <field name="document_type_id" ref="er_expense_mdm_document_type_000005"/>
+            <field name="biz_type_id" ref="er_expense_general_mdm_business_type"/>
+            <field name="key">is_support_currency</field>
+            <field name="value">False</field>
+            <field name="data_type">Boolean</field>
+        </record>
+
+        <!-- 项目通用费用报销单：项目管控 -->
+        <record id="er_expense_06_mdm_document_params_is_project_ctrl" model="mdm.document.params">
+            <field name="module_id" search="[('name', '=', 'ps_er')]"></field>
+            <field name="corespond_doc_id" ref="er_expense_mdm_document_list"/>
+            <field name="document_type_id" ref="er_expense_mdm_document_type_000006"/>
+            <field name="biz_type_id" ref="er_expense_general_mdm_business_type"/>
+            <field name="key">is_project_ctrl</field>
+            <field name="value">True</field>
+            <field name="data_type">Boolean</field>
+        </record>
+        <!-- 项目通用费用报销单：事前申请管控 -->
+        <record id="er_expense_06_mdm_document_params_is_request_ctrl" model="mdm.document.params">
+            <field name="module_id" search="[('name', '=', 'ps_er')]"></field>
+            <field name="corespond_doc_id" ref="er_expense_mdm_document_list"/>
+            <field name="document_type_id" ref="er_expense_mdm_document_type_000006"/>
+            <field name="biz_type_id" ref="er_expense_general_mdm_business_type"/>
+            <field name="key">is_request_ctrl</field>
+            <field name="value">False</field>
+            <field name="data_type">Boolean</field>
+        </record>
+        <!-- 项目通用费用报销单：可选报销事项范围 -->
+        <record id="er_expense_06_mdm_document_params_reimb_item_option" model="mdm.document.params">
+            <field name="module_id" search="[('name', '=', 'ps_er')]"></field>
+            <field name="corespond_doc_id" ref="er_expense_mdm_document_list"/>
+            <field name="document_type_id" ref="er_expense_mdm_document_type_000006"/>
+            <field name="biz_type_id" ref="er_expense_general_mdm_business_type"/>
+            <field name="key">reimb_item_option</field>
+            <field name="value">exclude</field>
+            <field name="data_type">Selection</field>
+        </record>
+        <!-- 项目通用费用报销单：可选报销事项 -->
+        <record id="er_expense_06_mdm_document_params_exp_item_ids" model="mdm.document.params">
+            <field name="module_id" search="[('name', '=', 'ps_er')]"></field>
+            <field name="corespond_doc_id" ref="er_expense_mdm_document_list"/>
+            <field name="document_type_id" ref="er_expense_mdm_document_type_000006"/>
+            <field name="biz_type_id" ref="er_expense_general_mdm_business_type"/>
+            <field name="key">exp_item_ids</field>
+            <field name="value" eval="'_'.join([str(ref('ps_mdm.expense_item_data_09')), str(ref('ps_mdm.expense_item_data_13')), str(ref('ps_mdm.expense_item_data_12'))])"></field>
+            <field name="data_type">Many2many</field>
+        </record>
+        <!-- 项目通用费用报销单：支持外币业务 -->
+        <record id="er_expense_06_mdm_document_params_is_support_currency" model="mdm.document.params">
+            <field name="module_id" search="[('name', '=', 'ps_er')]"></field>
+            <field name="corespond_doc_id" ref="er_expense_mdm_document_list"/>
+            <field name="document_type_id" ref="er_expense_mdm_document_type_000006"/>
+            <field name="biz_type_id" ref="er_expense_general_mdm_business_type"/>
+            <field name="key">is_support_currency</field>
+            <field name="value">False</field>
+            <field name="data_type">Boolean</field>
+        </record>
+
+        <!-- 非项目会议费报销单：项目管控 -->
+        <record id="er_expense_07_mdm_document_params_is_project_ctrl" model="mdm.document.params">
+            <field name="module_id" search="[('name', '=', 'ps_er')]"></field>
+            <field name="corespond_doc_id" ref="er_expense_mdm_document_list"/>
+            <field name="document_type_id" ref="er_expense_mdm_document_type_000007"/>
+            <field name="biz_type_id" ref="er_expense_meeting_mdm_business_type"/>
+            <field name="key">is_project_ctrl</field>
+            <field name="value">False</field>
+            <field name="data_type">Boolean</field>
+        </record>
+        <!-- 非项目会议费报销单：事前申请管控 -->
+        <record id="er_expense_07_mdm_document_params_is_request_ctrl" model="mdm.document.params">
+            <field name="module_id" search="[('name', '=', 'ps_er')]"></field>
+            <field name="corespond_doc_id" ref="er_expense_mdm_document_list"/>
+            <field name="document_type_id" ref="er_expense_mdm_document_type_000007"/>
+            <field name="biz_type_id" ref="er_expense_meeting_mdm_business_type"/>
+            <field name="key">is_request_ctrl</field>
+            <field name="value">False</field>
+            <field name="data_type">Boolean</field>
+        </record>
+        <!-- 非项目会议费报销单：可选报销事项范围 -->
+        <record id="er_expense_07_mdm_document_params_reimb_item_option" model="mdm.document.params">
+            <field name="module_id" search="[('name', '=', 'ps_er')]"></field>
+            <field name="corespond_doc_id" ref="er_expense_mdm_document_list"/>
+            <field name="document_type_id" ref="er_expense_mdm_document_type_000007"/>
+            <field name="biz_type_id" ref="er_expense_meeting_mdm_business_type"/>
+            <field name="key">reimb_item_option</field>
+            <field name="value">include</field>
+            <field name="data_type">Selection</field>
+        </record>
+        <!-- 非项目会议费报销单：可选报销事项 -->
+        <record id="er_expense_07_mdm_document_params_exp_item_ids" model="mdm.document.params">
+            <field name="module_id" search="[('name', '=', 'ps_er')]"></field>
+            <field name="corespond_doc_id" ref="er_expense_mdm_document_list"/>
+            <field name="document_type_id" ref="er_expense_mdm_document_type_000007"/>
+            <field name="biz_type_id" ref="er_expense_meeting_mdm_business_type"/>
+            <field name="key">exp_item_ids</field>
+            <field name="value" eval="str(ref('ps_mdm.expense_item_data_13'))"></field>
+            <field name="data_type">Many2many</field>
+        </record>
+        <!-- 非项目会议费报销单：支持外币业务 -->
+        <record id="er_expense_07_mdm_document_params_is_support_currency" model="mdm.document.params">
+            <field name="module_id" search="[('name', '=', 'ps_er')]"></field>
+            <field name="corespond_doc_id" ref="er_expense_mdm_document_list"/>
+            <field name="document_type_id" ref="er_expense_mdm_document_type_000007"/>
+            <field name="biz_type_id" ref="er_expense_general_mdm_business_type"/>
+            <field name="key">is_support_currency</field>
+            <field name="value">False</field>
+            <field name="data_type">Boolean</field>
+        </record>
+
+        <!-- 项目会议费报销单：项目管控 -->
+        <record id="er_expense_08_mdm_document_params_is_project_ctrl" model="mdm.document.params">
+            <field name="module_id" search="[('name', '=', 'ps_er')]"></field>
+            <field name="corespond_doc_id" ref="er_expense_mdm_document_list"/>
+            <field name="document_type_id" ref="er_expense_mdm_document_type_000008"/>
+            <field name="biz_type_id" ref="er_expense_meeting_mdm_business_type"/>
+            <field name="key">is_project_ctrl</field>
+            <field name="value">True</field>
+            <field name="data_type">Boolean</field>
+        </record>
+        <!-- 项目会议费报销单：事前申请管控 -->
+        <record id="er_expense_08_mdm_document_params_is_request_ctrl" model="mdm.document.params">
+            <field name="module_id" search="[('name', '=', 'ps_er')]"></field>
+            <field name="corespond_doc_id" ref="er_expense_mdm_document_list"/>
+            <field name="document_type_id" ref="er_expense_mdm_document_type_000008"/>
+            <field name="biz_type_id" ref="er_expense_meeting_mdm_business_type"/>
+            <field name="key">is_request_ctrl</field>
+            <field name="value">False</field>
+            <field name="data_type">Boolean</field>
+        </record>
+        <!-- 项目会议费报销单：可选报销事项范围 -->
+        <record id="er_expense_08_mdm_document_params_reimb_item_option" model="mdm.document.params">
+            <field name="module_id" search="[('name', '=', 'ps_er')]"></field>
+            <field name="corespond_doc_id" ref="er_expense_mdm_document_list"/>
+            <field name="document_type_id" ref="er_expense_mdm_document_type_000008"/>
+            <field name="biz_type_id" ref="er_expense_meeting_mdm_business_type"/>
+            <field name="key">reimb_item_option</field>
+            <field name="value">include</field>
+            <field name="data_type">Selection</field>
+        </record>
+        <!-- 项目会议费报销单：可选报销事项 -->
+        <record id="er_expense_08_mdm_document_params_exp_item_ids" model="mdm.document.params">
+            <field name="module_id" search="[('name', '=', 'ps_er')]"></field>
+            <field name="corespond_doc_id" ref="er_expense_mdm_document_list"/>
+            <field name="document_type_id" ref="er_expense_mdm_document_type_000008"/>
+            <field name="biz_type_id" ref="er_expense_meeting_mdm_business_type"/>
+            <field name="key">exp_item_ids</field>
+            <field name="value" eval="str(ref('ps_mdm.expense_item_data_13'))"></field>
+            <field name="data_type">Many2many</field>
+        </record>2
+        <!-- 项目会议费报销单：支持外币业务 -->
+        <record id="er_expense_08_mdm_document_params_is_support_currency" model="mdm.document.params">
+            <field name="module_id" search="[('name', '=', 'ps_er')]"></field>
+            <field name="corespond_doc_id" ref="er_expense_mdm_document_list"/>
+            <field name="document_type_id" ref="er_expense_mdm_document_type_000008"/>
+            <field name="biz_type_id" ref="er_expense_general_mdm_business_type"/>
+            <field name="key">is_support_currency</field>
+            <field name="value">False</field>
+            <field name="data_type">Boolean</field>
+        </record>
+        <!-- 非项目业务招待费报销单：项目管控 -->
+        <record id="er_expense_09_mdm_document_params_is_project_ctrl" model="mdm.document.params">
+            <field name="module_id" search="[('name', '=', 'ps_er')]"></field>
+            <field name="corespond_doc_id" ref="er_expense_mdm_document_list"/>
+            <field name="document_type_id" ref="er_expense_mdm_document_type_000009"/>
+            <field name="biz_type_id" ref="er_expense_business_mdm_business_type"/>
+            <field name="key">is_project_ctrl</field>
+            <field name="value">False</field>
+            <field name="data_type">Boolean</field>
+        </record>
+        <!-- 非项目业务招待费报销单：事前申请管控 -->
+        <record id="er_expense_09_mdm_document_params_is_request_ctrl" model="mdm.document.params">
+            <field name="module_id" search="[('name', '=', 'ps_er')]"></field>
+            <field name="corespond_doc_id" ref="er_expense_mdm_document_list"/>
+            <field name="document_type_id" ref="er_expense_mdm_document_type_000009"/>
+            <field name="biz_type_id" ref="er_expense_business_mdm_business_type"/>
+            <field name="key">is_request_ctrl</field>
+            <field name="value">False</field>
+            <field name="data_type">Boolean</field>
+        </record>
+        <!-- 非项目业务招待费报销单：可选报销事项范围 -->
+        <record id="er_expense_09_mdm_document_params_reimb_item_option" model="mdm.document.params">
+            <field name="module_id" search="[('name', '=', 'ps_er')]"></field>
+            <field name="corespond_doc_id" ref="er_expense_mdm_document_list"/>
+            <field name="document_type_id" ref="er_expense_mdm_document_type_000009"/>
+            <field name="biz_type_id" ref="er_expense_business_mdm_business_type"/>
+            <field name="key">reimb_item_option</field>
+            <field name="value">include</field>
+            <field name="data_type">Selection</field>
+        </record>
+        <!-- 非项目业务招待费报销单：可选报销事项 -->
+        <record id="er_expense_09_mdm_document_params_exp_item_ids" model="mdm.document.params">
+            <field name="module_id" search="[('name', '=', 'ps_er')]"></field>
+            <field name="corespond_doc_id" ref="er_expense_mdm_document_list"/>
+            <field name="document_type_id" ref="er_expense_mdm_document_type_000009"/>
+            <field name="biz_type_id" ref="er_expense_business_mdm_business_type"/>
+            <field name="key">exp_item_ids</field>
+            <field name="value" eval="str(ref('ps_mdm.expense_item_data_12'))"></field>
+            <field name="data_type">Many2many</field>
+        </record>
+        <!-- 非项目业务招待费报销单：支持外币业务 -->
+        <record id="er_expense_09_mdm_document_params_is_support_currency" model="mdm.document.params">
+            <field name="module_id" search="[('name', '=', 'ps_er')]"></field>
+            <field name="corespond_doc_id" ref="er_expense_mdm_document_list"/>
+            <field name="document_type_id" ref="er_expense_mdm_document_type_000009"/>
+            <field name="biz_type_id" ref="er_expense_general_mdm_business_type"/>
+            <field name="key">is_support_currency</field>
+            <field name="value">False</field>
+            <field name="data_type">Boolean</field>
+        </record>
+
+        <!-- 项目业务招待费报销单：项目管控 -->
+        <record id="er_expense_10_mdm_document_params_is_project_ctrl" model="mdm.document.params">
+            <field name="module_id" search="[('name', '=', 'ps_er')]"></field>
+            <field name="corespond_doc_id" ref="er_expense_mdm_document_list"/>
+            <field name="document_type_id" ref="er_expense_mdm_document_type_000010"/>
+            <field name="biz_type_id" ref="er_expense_business_mdm_business_type"/>
+            <field name="key">is_project_ctrl</field>
+            <field name="value">True</field>
+            <field name="data_type">Boolean</field>
+        </record>
+        <!-- 项目业务招待费报销单：事前申请管控 -->
+        <record id="er_expense_10_mdm_document_params_is_request_ctrl" model="mdm.document.params">
+            <field name="module_id" search="[('name', '=', 'ps_er')]"></field>
+            <field name="corespond_doc_id" ref="er_expense_mdm_document_list"/>
+            <field name="document_type_id" ref="er_expense_mdm_document_type_000010"/>
+            <field name="biz_type_id" ref="er_expense_business_mdm_business_type"/>
+            <field name="key">is_request_ctrl</field>
+            <field name="value">False</field>
+            <field name="data_type">Boolean</field>
+        </record>
+        <!-- 项目业务招待费报销单：可选报销事项范围 -->
+        <record id="er_expense_10_mdm_document_params_reimb_item_option" model="mdm.document.params">
+            <field name="module_id" search="[('name', '=', 'ps_er')]"></field>
+            <field name="corespond_doc_id" ref="er_expense_mdm_document_list"/>
+            <field name="document_type_id" ref="er_expense_mdm_document_type_000010"/>
+            <field name="biz_type_id" ref="er_expense_business_mdm_business_type"/>
+            <field name="key">reimb_item_option</field>
+            <field name="value">include</field>
+            <field name="data_type">Selection</field>
+        </record>
+        <!-- 项目业务招待费报销单：可选报销事项 -->
+        <record id="er_expense_10_mdm_document_params_exp_item_ids" model="mdm.document.params">
+            <field name="module_id" search="[('name', '=', 'ps_er')]"></field>
+            <field name="corespond_doc_id" ref="er_expense_mdm_document_list"/>
+            <field name="document_type_id" ref="er_expense_mdm_document_type_000010"/>
+            <field name="biz_type_id" ref="er_expense_business_mdm_business_type"/>
+            <field name="key">exp_item_ids</field>
+            <field name="value" eval="str(ref('ps_mdm.expense_item_data_12'))"></field>
+            <field name="data_type">Many2many</field>
+        </record>
+        <!-- 项目业务招待费报销单：支持外币业务 -->
+        <record id="er_expense_10_mdm_document_params_is_support_currency" model="mdm.document.params">
+            <field name="module_id" search="[('name', '=', 'ps_er')]"></field>
+            <field name="corespond_doc_id" ref="er_expense_mdm_document_list"/>
+            <field name="document_type_id" ref="er_expense_mdm_document_type_000010"/>
+            <field name="biz_type_id" ref="er_expense_general_mdm_business_type"/>
+            <field name="key">is_support_currency</field>
+            <field name="value">False</field>
+            <field name="data_type">Boolean</field>
+        </record>
+    </data>
+</odoo>

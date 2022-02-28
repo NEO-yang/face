@@ -1,0 +1,463 @@
+
+    <!-- 公务出差 -->
+    <record id="ps_er.action_business_trip" model="ir.actions.act_window">
+      <field name="res_model">er.expense</field>
+      <field name="name">Business trip</field>
+      <field name="view_id" ref="er_expense_form"/>
+      <field name="view_ids" eval="[(5, 0, 0),(0, 0, {'view_mode': 'tree', 'view_id': ref('expense_record_doc_tree')}),(0, 0, {'view_mode': 'form', 'view_id': ref('er_expense_form')}),(0, 0, {'view_mode': 'pssearch', 'view_id': ref('expense_record_doc_pssearch')})]"/>
+      <field name="view_mode">tree,form,pssearch</field>
+      <field name="search_view_id" ref="expense_record_doc_tree_search"/>
+      <field name="target">current</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="domain">[]</field>
+      <field name="context">{'enter_type': 'Business trip'}</field>
+      <field name="default_action" eval="False"/>
+    </record>
+    <record id="ps_er.menu_er_business_trip" model="ir.ui.menu">
+      <field name="action" ref="ps_er.action_business_trip"/>
+      <field name="active" eval="True"/>
+      <field name="name">Business trip</field>
+      <field name="parent_id" ref="ps_er.menu_er_daily_official_activities"/>
+      <field name="sequence">20</field>
+      <field name="bound_func">read</field>
+    </record>
+    <!-- 召开会议 -->
+    <record id="ps_er.action_hold_meeting" model="ir.actions.act_window">
+      <field name="res_model">er.expense</field>
+      <field name="name">Hold Meeting</field>
+      <field name="view_id" ref="er_expense_form"/>
+      <field name="view_ids" eval="[(5, 0, 0),(0, 0, {'view_mode': 'tree', 'view_id': ref('expense_record_doc_tree')}),(0, 0, {'view_mode': 'form', 'view_id': ref('er_expense_form')}),(0, 0, {'view_mode': 'pssearch', 'view_id': ref('expense_record_doc_pssearch')})]"/>
+      <field name="view_mode">tree,form,pssearch</field>
+      <field name="search_view_id" ref="expense_record_doc_tree_search"/>
+      <field name="target">current</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="domain">[]</field>
+      <field name="context">{'enter_type': 'Hold Meeting'}</field>
+      <field name="default_action" eval="False"/>
+    </record>
+    <record id="ps_er.menu_er_hold_meeting" model="ir.ui.menu">
+      <field name="action" ref="ps_er.action_hold_meeting"/>
+      <field name="active" eval="True"/>
+      <field name="name">Hold Meeting</field>
+      <field name="parent_id" ref="ps_er.menu_er_daily_official_activities"/>
+      <field name="sequence">20</field>
+      <field name="bound_func">read</field>
+    </record>
+    <!-- 公务接待 -->
+    <record id="ps_er.action_official_reception" model="ir.actions.act_window">
+      <field name="res_model">er.expense</field>
+      <field name="name">Official reception</field>
+      <field name="view_id" ref="er_expense_form"/>
+      <field name="view_ids" eval="[(5, 0, 0),(0, 0, {'view_mode': 'tree', 'view_id': ref('expense_record_doc_tree')}),(0, 0, {'view_mode': 'form', 'view_id': ref('er_expense_form')}),(0, 0, {'view_mode': 'pssearch', 'view_id': ref('expense_record_doc_pssearch')})]"/>
+      <field name="view_mode">tree,form,pssearch</field>
+      <field name="search_view_id" ref="expense_record_doc_tree_search"/>
+      <field name="target">current</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="domain">[]</field>
+      <field name="context">{'enter_type': 'Official reception'}</field>
+      <field name="default_action" eval="False"/>
+    </record>
+    <record id="ps_er.menu_er_official_reception" model="ir.ui.menu">
+      <field name="action" ref="ps_er.action_official_reception"/>
+      <field name="active" eval="True"/>
+      <field name="name">Official reception</field>
+      <field name="parent_id" ref="ps_er.menu_er_daily_official_activities"/>
+      <field name="sequence">20</field>
+      <field name="bound_func">read</field>
+    </record>
+    <!-- 车辆使用 -->
+    <record id="ps_er.action_vehicle_use" model="ir.actions.act_window">
+      <field name="res_model">er.expense</field>
+      <field name="name">Vehicle use</field>
+      <field name="view_id" ref="er_expense_form"/>
+      <field name="view_ids" eval="[(5, 0, 0),(0, 0, {'view_mode': 'tree', 'view_id': ref('expense_record_doc_tree')}),(0, 0, {'view_mode': 'form', 'view_id': ref('er_expense_form')}),(0, 0, {'view_mode': 'pssearch', 'view_id': ref('expense_record_doc_pssearch')})]"/>
+      <field name="view_mode">tree,form,pssearch</field>
+      <field name="search_view_id" ref="expense_record_doc_tree_search"/>
+      <field name="target">current</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="domain">[]</field>
+      <field name="context">{'enter_type': 'Vehicle use'}</field>
+      <field name="default_action" eval="False"/>
+    </record>
+    <record id="ps_er.menu_er_vehicle_use" model="ir.ui.menu">
+      <field name="action" ref="ps_er.action_vehicle_use"/>
+      <field name="active" eval="True"/>
+      <field name="name">Vehicle use</field>
+      <field name="parent_id" ref="ps_er.menu_er_daily_official_activities"/>
+      <field name="sequence">20</field>
+      <field name="bound_func">read</field>
+    </record>
+    <!-- 年检及团体会费 -->
+    <record id="ps_er.action_annual_inspection_and_group_membership_fees" model="ir.actions.act_window">
+      <field name="res_model">er.expense</field>
+      <field name="name">Annual inspection and group membership fees</field>
+      <field name="view_id" ref="er_expense_form"/>
+      <field name="view_ids" eval="[(5, 0, 0),(0, 0, {'view_mode': 'tree', 'view_id': ref('expense_record_doc_tree')}),(0, 0, {'view_mode': 'form', 'view_id': ref('er_expense_form')}),(0, 0, {'view_mode': 'pssearch', 'view_id': ref('expense_record_doc_pssearch')})]"/>
+      <field name="view_mode">tree,form,pssearch</field>
+      <field name="search_view_id" ref="expense_record_doc_tree_search"/>
+      <field name="target">current</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="domain">[]</field>
+      <field name="context">{'enter_type': 'Annual inspection and group membership fees'}</field>
+      <field name="default_action" eval="False"/>
+    </record>
+    <record id="ps_er.menu_er_annual_inspection_and_group_membership_fees" model="ir.ui.menu">
+      <field name="action" ref="ps_er.action_annual_inspection_and_group_membership_fees"/>
+      <field name="active" eval="True"/>
+      <field name="name">Annual inspection and group membership fees</field>
+      <field name="parent_id" ref="ps_er.menu_er_daily_official_activities"/>
+      <field name="sequence">20</field>
+      <field name="bound_func">read</field>
+    </record>
+    <!-- 业务营销招待 -->
+    <record id="ps_er.action_business_marketing_entertainment" model="ir.actions.act_window">
+      <field name="res_model">er.expense</field>
+      <field name="name">Business marketing entertainment</field>
+      <field name="view_id" ref="er_expense_form"/>
+      <field name="view_ids" eval="[(5, 0, 0),(0, 0, {'view_mode': 'tree', 'view_id': ref('expense_record_doc_tree')}),(0, 0, {'view_mode': 'form', 'view_id': ref('er_expense_form')}),(0, 0, {'view_mode': 'pssearch', 'view_id': ref('expense_record_doc_pssearch')})]"/>
+      <field name="view_mode">tree,form,pssearch</field>
+      <field name="search_view_id" ref="expense_record_doc_tree_search"/>
+      <field name="target">current</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="domain">[]</field>
+      <field name="context">{'enter_type': 'Business marketing entertainment'}</field>
+      <field name="default_action" eval="False"/>
+    </record>
+    <record id="ps_er.menu_er_business_marketing_entertainment" model="ir.ui.menu">
+      <field name="action" ref="ps_er.action_business_marketing_entertainment"/>
+      <field name="active" eval="True"/>
+      <field name="name">Business marketing entertainment</field>
+      <field name="parent_id" ref="ps_er.menu_er_business_marketing_activities"/>
+      <field name="sequence">20</field>
+      <field name="bound_func">read</field>
+    </record>
+    <!-- 购买营销用品 -->
+    <record id="ps_er.action_buy_marketing_supplies" model="ir.actions.act_window">
+      <field name="res_model">er.expense</field>
+      <field name="name">Buy marketing supplies</field>
+      <field name="view_id" ref="er_expense_form"/>
+      <field name="view_ids" eval="[(5, 0, 0),(0, 0, {'view_mode': 'tree', 'view_id': ref('expense_record_doc_tree')}),(0, 0, {'view_mode': 'form', 'view_id': ref('er_expense_form')}),(0, 0, {'view_mode': 'pssearch', 'view_id': ref('expense_record_doc_pssearch')})]"/>
+      <field name="view_mode">tree,form,pssearch</field>
+      <field name="search_view_id" ref="expense_record_doc_tree_search"/>
+      <field name="target">current</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="domain">[]</field>
+      <field name="context">{'enter_type': 'Buy marketing supplies'}</field>
+      <field name="default_action" eval="False"/>
+    </record>
+    <record id="ps_er.menu_er_buy_marketing_supplies" model="ir.ui.menu">
+      <field name="action" ref="ps_er.action_buy_marketing_supplies"/>
+      <field name="active" eval="True"/>
+      <field name="name">Buy marketing supplies</field>
+      <field name="parent_id" ref="ps_er.menu_er_business_marketing_activities"/>
+      <field name="sequence">20</field>
+      <field name="bound_func">read</field>
+    </record>
+    <!-- 其他营销活动 -->
+    <record id="ps_er.action_other_marketing_activities" model="ir.actions.act_window">
+      <field name="res_model">er.expense</field>
+      <field name="name">Other marketing activities</field>
+      <field name="view_id" ref="er_expense_form"/>
+      <field name="view_ids" eval="[(5, 0, 0),(0, 0, {'view_mode': 'tree', 'view_id': ref('expense_record_doc_tree')}),(0, 0, {'view_mode': 'form', 'view_id': ref('er_expense_form')}),(0, 0, {'view_mode': 'pssearch', 'view_id': ref('expense_record_doc_pssearch')})]"/>
+      <field name="view_mode">tree,form,pssearch</field>
+      <field name="search_view_id" ref="expense_record_doc_tree_search"/>
+      <field name="target">current</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="domain">[]</field>
+      <field name="context">{'enter_type': 'Other marketing activities'}</field>
+      <field name="default_action" eval="False"/>
+    </record>
+    <record id="ps_er.menu_er_other_marketing_activities" model="ir.ui.menu">
+      <field name="action" ref="ps_er.action_other_marketing_activities"/>
+      <field name="active" eval="True"/>
+      <field name="name">Other marketing activities</field>
+      <field name="parent_id" ref="ps_er.menu_er_business_marketing_activities"/>
+      <field name="sequence">20</field>
+      <field name="bound_func">read</field>
+    </record>
+    <!-- 员工招聘 -->
+    <record id="ps_er.action_staff_recruitment" model="ir.actions.act_window">
+      <field name="res_model">er.expense</field>
+      <field name="name">Staff recruitment</field>
+      <field name="view_id" ref="er_expense_form"/>
+      <field name="view_ids" eval="[(5, 0, 0),(0, 0, {'view_mode': 'tree', 'view_id': ref('expense_record_doc_tree')}),(0, 0, {'view_mode': 'form', 'view_id': ref('er_expense_form')}),(0, 0, {'view_mode': 'pssearch', 'view_id': ref('expense_record_doc_pssearch')})]"/>
+      <field name="view_mode">tree,form,pssearch</field>
+      <field name="search_view_id" ref="expense_record_doc_tree_search"/>
+      <field name="target">current</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="domain">[]</field>
+      <field name="context">{'enter_type': 'Staff recruitment'}</field>
+      <field name="default_action" eval="False"/>
+    </record>
+    <record id="ps_er.menu_er_staff_recruitment" model="ir.ui.menu">
+      <field name="action" ref="ps_er.action_staff_recruitment"/>
+      <field name="active" eval="True"/>
+      <field name="name">Staff recruitment</field>
+      <field name="parent_id" ref="ps_er.menu_er_staff_recruitment_and_training_expenses"/>
+      <field name="sequence">20</field>
+      <field name="bound_func">read</field>
+    </record>
+    <!-- 员工培训 -->
+    <record id="ps_er.action_staff_training" model="ir.actions.act_window">
+      <field name="res_model">er.expense</field>
+      <field name="name">Staff training</field>
+      <field name="view_id" ref="er_expense_form"/>
+      <field name="view_ids" eval="[(5, 0, 0),(0, 0, {'view_mode': 'tree', 'view_id': ref('expense_record_doc_tree')}),(0, 0, {'view_mode': 'form', 'view_id': ref('er_expense_form')}),(0, 0, {'view_mode': 'pssearch', 'view_id': ref('expense_record_doc_pssearch')})]"/>
+      <field name="view_mode">tree,form,pssearch</field>
+      <field name="search_view_id" ref="expense_record_doc_tree_search"/>
+      <field name="target">current</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="domain">[]</field>
+      <field name="context">{'enter_type': 'Staff training'}</field>
+      <field name="default_action" eval="False"/>
+    </record>
+    <record id="ps_er.menu_er_staff_training" model="ir.ui.menu">
+      <field name="action" ref="ps_er.action_staff_training"/>
+      <field name="active" eval="True"/>
+      <field name="name">Staff training</field>
+      <field name="parent_id" ref="ps_er.menu_er_staff_recruitment_and_training_expenses"/>
+      <field name="sequence">20</field>
+      <field name="bound_func">read</field>
+    </record>
+    <!-- 党建活动 -->
+    <record id="ps_er.action_party_building_activities" model="ir.actions.act_window">
+      <field name="res_model">er.expense</field>
+      <field name="name">Party building activities</field>
+      <field name="view_id" ref="er_expense_form"/>
+      <field name="view_ids" eval="[(5, 0, 0),(0, 0, {'view_mode': 'tree', 'view_id': ref('expense_record_doc_tree')}),(0, 0, {'view_mode': 'form', 'view_id': ref('er_expense_form')}),(0, 0, {'view_mode': 'pssearch', 'view_id': ref('expense_record_doc_pssearch')})]"/>
+      <field name="view_mode">tree,form,pssearch</field>
+      <field name="search_view_id" ref="expense_record_doc_tree_search"/>
+      <field name="target">current</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="domain">[]</field>
+      <field name="context">{'enter_type': 'Party building activities'}</field>
+      <field name="default_action" eval="False"/>
+    </record>
+    <record id="ps_er.menu_er_party_building_activities" model="ir.ui.menu">
+      <field name="action" ref="ps_er.action_party_building_activities"/>
+      <field name="active" eval="True"/>
+      <field name="name">Party building activities</field>
+      <field name="parent_id" ref="ps_er.menu_er_party_building_activity_expenses"/>
+      <field name="sequence">20</field>
+      <field name="bound_func">read</field>
+    </record>
+    <!-- 用于经营管理 -->
+    <record id="ps_er.action_used_for_business_management" model="ir.actions.act_window">
+      <field name="res_model">er.expense</field>
+      <field name="name">Used for business management</field>
+      <field name="view_id" ref="er_expense_form"/>
+      <field name="view_ids" eval="[(5, 0, 0),(0, 0, {'view_mode': 'tree', 'view_id': ref('expense_record_doc_tree')}),(0, 0, {'view_mode': 'form', 'view_id': ref('er_expense_form')}),(0, 0, {'view_mode': 'pssearch', 'view_id': ref('expense_record_doc_pssearch')})]"/>
+      <field name="view_mode">tree,form,pssearch</field>
+      <field name="search_view_id" ref="expense_record_doc_tree_search"/>
+      <field name="target">current</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="domain">[]</field>
+      <field name="context">{'enter_type': 'Used for business management'}</field>
+      <field name="default_action" eval="False"/>
+    </record>
+    <record id="ps_er.menu_er_used_for_business_management" model="ir.ui.menu">
+      <field name="action" ref="ps_er.action_used_for_business_management"/>
+      <field name="active" eval="True"/>
+      <field name="name">Used for business management</field>
+      <field name="parent_id" ref="ps_er.menu_er_sporadic_purchases_of_various_items"/>
+      <field name="sequence">20</field>
+      <field name="bound_func">read</field>
+    </record>
+    <!-- 用于项目研发 -->
+    <record id="ps_er.action_for_project_research_and_development" model="ir.actions.act_window">
+      <field name="res_model">er.expense</field>
+      <field name="name">For project research and development</field>
+      <field name="view_id" ref="er_expense_form"/>
+      <field name="view_ids" eval="[(5, 0, 0),(0, 0, {'view_mode': 'tree', 'view_id': ref('expense_record_doc_tree')}),(0, 0, {'view_mode': 'form', 'view_id': ref('er_expense_form')}),(0, 0, {'view_mode': 'pssearch', 'view_id': ref('expense_record_doc_pssearch')})]"/>
+      <field name="view_mode">tree,form,pssearch</field>
+      <field name="search_view_id" ref="expense_record_doc_tree_search"/>
+      <field name="target">current</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="domain">[]</field>
+      <field name="context">{'enter_type': 'For project research and development'}</field>
+      <field name="default_action" eval="False"/>
+    </record>
+    <record id="ps_er.menu_er_for_project_research_and_development" model="ir.ui.menu">
+      <field name="action" ref="ps_er.action_for_project_research_and_development"/>
+      <field name="active" eval="True"/>
+      <field name="name">For project research and development</field>
+      <field name="parent_id" ref="ps_er.menu_er_sporadic_purchases_of_various_items"/>
+      <field name="sequence">20</field>
+      <field name="bound_func">read</field>
+    </record>
+    <!-- 用于员工个人 -->
+    <record id="ps_er.action_for_employees" model="ir.actions.act_window">
+      <field name="res_model">er.expense</field>
+      <field name="name">For employees</field>
+      <field name="view_id" ref="er_expense_form"/>
+      <field name="view_ids" eval="[(5, 0, 0),(0, 0, {'view_mode': 'tree', 'view_id': ref('expense_record_doc_tree')}),(0, 0, {'view_mode': 'form', 'view_id': ref('er_expense_form')}),(0, 0, {'view_mode': 'pssearch', 'view_id': ref('expense_record_doc_pssearch')})]"/>
+      <field name="view_mode">tree,form,pssearch</field>
+      <field name="search_view_id" ref="expense_record_doc_tree_search"/>
+      <field name="target">current</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="domain">[]</field>
+      <field name="context">{'enter_type': 'For employees'}</field>
+      <field name="default_action" eval="False"/>
+    </record>
+    <record id="ps_er.menu_er_for_employees" model="ir.ui.menu">
+      <field name="action" ref="ps_er.action_for_employees"/>
+      <field name="active" eval="True"/>
+      <field name="name">For employees</field>
+      <field name="parent_id" ref="ps_er.menu_er_sporadic_purchases_of_various_items"/>
+      <field name="sequence">20</field>
+      <field name="bound_func">read</field>
+    </record>
+    <!-- 用于员工集体 -->
+    <record id="ps_er.action_for_the_employee_collective" model="ir.actions.act_window">
+      <field name="res_model">er.expense</field>
+      <field name="name">For the employee collective</field>
+      <field name="view_id" ref="er_expense_form"/>
+      <field name="view_ids" eval="[(5, 0, 0),(0, 0, {'view_mode': 'tree', 'view_id': ref('expense_record_doc_tree')}),(0, 0, {'view_mode': 'form', 'view_id': ref('er_expense_form')}),(0, 0, {'view_mode': 'pssearch', 'view_id': ref('expense_record_doc_pssearch')})]"/>
+      <field name="view_mode">tree,form,pssearch</field>
+      <field name="search_view_id" ref="expense_record_doc_tree_search"/>
+      <field name="target">current</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="domain">[]</field>
+      <field name="context">{'enter_type': 'For the employee collective'}</field>
+      <field name="default_action" eval="False"/>
+    </record>
+    <record id="ps_er.menu_er_for_the_employee_collective" model="ir.ui.menu">
+      <field name="action" ref="ps_er.action_for_the_employee_collective"/>
+      <field name="active" eval="True"/>
+      <field name="name">For the employee collective</field>
+      <field name="parent_id" ref="ps_er.menu_er_sporadic_purchases_of_various_items"/>
+      <field name="sequence">20</field>
+      <field name="bound_func">read</field>
+    </record>
+    <!-- 为经营管理服务 -->
+    <record id="ps_er.action_serve_for_business_management" model="ir.actions.act_window">
+      <field name="res_model">er.expense</field>
+      <field name="name">Serve for business management</field>
+      <field name="view_id" ref="er_expense_form"/>
+      <field name="view_ids" eval="[(5, 0, 0),(0, 0, {'view_mode': 'tree', 'view_id': ref('expense_record_doc_tree')}),(0, 0, {'view_mode': 'form', 'view_id': ref('er_expense_form')}),(0, 0, {'view_mode': 'pssearch', 'view_id': ref('expense_record_doc_pssearch')})]"/>
+      <field name="view_mode">tree,form,pssearch</field>
+      <field name="search_view_id" ref="expense_record_doc_tree_search"/>
+      <field name="target">current</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="domain">[]</field>
+      <field name="context">{'enter_type': 'Serve for business management'}</field>
+      <field name="default_action" eval="False"/>
+    </record>
+    <record id="ps_er.menu_er_serve_for_business_management" model="ir.ui.menu">
+      <field name="action" ref="ps_er.action_serve_for_business_management"/>
+      <field name="active" eval="True"/>
+      <field name="name">Serve for business management</field>
+      <field name="parent_id" ref="ps_er.menu_er_buy_various_services_sporadically"/>
+      <field name="sequence">20</field>
+      <field name="bound_func">read</field>
+    </record>
+    <!-- 为项目研发服务 -->
+    <record id="ps_er.action_serve_for_project_research_and_development" model="ir.actions.act_window">
+      <field name="res_model">er.expense</field>
+      <field name="name">Serve for project research and development</field>
+      <field name="view_id" ref="er_expense_form"/>
+      <field name="view_ids" eval="[(5, 0, 0),(0, 0, {'view_mode': 'tree', 'view_id': ref('expense_record_doc_tree')}),(0, 0, {'view_mode': 'form', 'view_id': ref('er_expense_form')}),(0, 0, {'view_mode': 'pssearch', 'view_id': ref('expense_record_doc_pssearch')})]"/>
+      <field name="view_mode">tree,form,pssearch</field>
+      <field name="search_view_id" ref="expense_record_doc_tree_search"/>
+      <field name="target">current</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="domain">[]</field>
+      <field name="context">{'enter_type': 'Serve for project research and development'}</field>
+      <field name="default_action" eval="False"/>
+    </record>
+    <record id="ps_er.menu_er_serve_for_project_research_and_development" model="ir.ui.menu">
+      <field name="action" ref="ps_er.action_serve_for_project_research_and_development"/>
+      <field name="active" eval="True"/>
+      <field name="name">Serve for project research and development</field>
+      <field name="parent_id" ref="ps_er.menu_er_buy_various_services_sporadically"/>
+      <field name="sequence">20</field>
+      <field name="bound_func">read</field>
+    </record>
+    <!-- 为员工集体服务 -->
+    <record id="ps_er.action_serving_employees_collectively" model="ir.actions.act_window">
+      <field name="res_model">er.expense</field>
+      <field name="name">Serving employees collectively</field>
+      <field name="view_id" ref="er_expense_form"/>
+      <field name="view_ids" eval="[(5, 0, 0),(0, 0, {'view_mode': 'tree', 'view_id': ref('expense_record_doc_tree')}),(0, 0, {'view_mode': 'form', 'view_id': ref('er_expense_form')}),(0, 0, {'view_mode': 'pssearch', 'view_id': ref('expense_record_doc_pssearch')})]"/>
+      <field name="view_mode">tree,form,pssearch</field>
+      <field name="search_view_id" ref="expense_record_doc_tree_search"/>
+      <field name="target">current</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="domain">[]</field>
+      <field name="context">{'enter_type': 'Serving employees collectively'}</field>
+      <field name="default_action" eval="False"/>
+    </record>
+    <record id="ps_er.menu_er_serving_employees_collectively" model="ir.ui.menu">
+      <field name="action" ref="ps_er.action_serving_employees_collectively"/>
+      <field name="active" eval="True"/>
+      <field name="name">Serving employees collectively</field>
+      <field name="parent_id" ref="ps_er.menu_er_buy_various_services_sporadically"/>
+      <field name="sequence">20</field>
+      <field name="bound_func">read</field>
+    </record>
+    <!-- 缴纳税金或行政费 -->
+    <record id="ps_er.action_pay_taxe_or_administrative_fees" model="ir.actions.act_window">
+      <field name="res_model">er.expense</field>
+      <field name="name">Pay taxes or administrative fees</field>
+      <field name="view_id" ref="er_expense_form"/>
+      <field name="view_ids" eval="[(5, 0, 0),(0, 0, {'view_mode': 'tree', 'view_id': ref('expense_record_doc_tree')}),(0, 0, {'view_mode': 'form', 'view_id': ref('er_expense_form')}),(0, 0, {'view_mode': 'pssearch', 'view_id': ref('expense_record_doc_pssearch')})]"/>
+      <field name="view_mode">tree,form,pssearch</field>
+      <field name="search_view_id" ref="expense_record_doc_tree_search"/>
+      <field name="target">current</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="domain">[]</field>
+      <field name="context">{'enter_type': 'Pay taxes or administrative fees'}</field>
+      <field name="default_action" eval="False"/>
+    </record>
+    <record id="ps_er.menu_er_pay_taxe_or_administrative_fees" model="ir.ui.menu">
+      <field name="action" ref="ps_er.action_pay_taxe_or_administrative_fees"/>
+      <field name="active" eval="True"/>
+      <field name="name">Pay taxes or administrative fees</field>
+      <field name="parent_id" ref="ps_er.menu_er_other_business_management_matters"/>
+      <field name="sequence">20</field>
+      <field name="bound_func">read</field>
+    </record>
+    <!-- 营业外支出事项 -->
+    <record id="ps_er.action_non_operating_expenses" model="ir.actions.act_window">
+      <field name="res_model">er.expense</field>
+      <field name="name">Non-operating expenses</field>
+      <field name="view_id" ref="er_expense_form"/>
+      <field name="view_ids" eval="[(5, 0, 0),(0, 0, {'view_mode': 'tree', 'view_id': ref('expense_record_doc_tree')}),(0, 0, {'view_mode': 'form', 'view_id': ref('er_expense_form')}),(0, 0, {'view_mode': 'pssearch', 'view_id': ref('expense_record_doc_pssearch')})]"/>
+      <field name="view_mode">tree,form,pssearch</field>
+      <field name="search_view_id" ref="expense_record_doc_tree_search"/>
+      <field name="target">current</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="domain">[]</field>
+      <field name="context">{'enter_type': 'Non-operating expenses'}</field>
+      <field name="default_action" eval="False"/>
+    </record>
+    <record id="ps_er.menu_er_non_operating_expenses" model="ir.ui.menu">
+      <field name="action" ref="ps_er.action_non_operating_expenses"/>
+      <field name="active" eval="True"/>
+      <field name="name">Non-operating expenses</field>
+      <field name="parent_id" ref="ps_er.menu_er_other_business_management_matters"/>
+      <field name="sequence">20</field>
+      <field name="bound_func">read</field>
+    </record>
+    <!-- 员工探亲 -->
+    <record id="ps_er.action_employees_visit_relatives" model="ir.actions.act_window">
+      <field name="res_model">er.expense</field>
+      <field name="name">Employees visit relatives</field>
+      <field name="view_id" ref="er_expense_form"/>
+      <field name="view_ids" eval="[(5, 0, 0),(0, 0, {'view_mode': 'tree', 'view_id': ref('expense_record_doc_tree')}),(0, 0, {'view_mode': 'form', 'view_id': ref('er_expense_form')}),(0, 0, {'view_mode': 'pssearch', 'view_id': ref('expense_record_doc_pssearch')})]"/>
+      <field name="view_mode">tree,form,pssearch</field>
+      <field name="search_view_id" ref="expense_record_doc_tree_search"/>
+      <field name="target">current</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="domain">[]</field>
+      <field name="context">{'enter_type': 'Employees visit relatives'}</field>
+      <field name="default_action" eval="False"/>
+    </record>
+    <record id="ps_er.menu_er_employees_visit_relatives" model="ir.ui.menu">
+      <field name="action" ref="ps_er.action_employees_visit_relatives"/>
+      <field name="active" eval="True"/>
+      <field name="name">Employees visit relatives</field>
+      <field name="parent_id" ref="ps_er.menu_er_other_business_management_matters"/>
+      <field name="sequence">20</field>
+      <field name="bound_func">read</field>
+    </record>
