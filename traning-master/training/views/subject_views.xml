@@ -1,0 +1,39 @@
+<odoo>
+  <data>
+
+    <record model="ir.ui.view" id="view_training_subject_tree">
+      <field name="name">Training Subject Tree</field>
+      <field name="model">training.subject</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="lesson_ids" widget="many2many_tags"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_training_subject_form">
+      <field name="name">Training Subject Form</field>
+      <field name="model">training.subject</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+                <field name="name"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="action_training_subject_tree">
+      <field name="name">Subject</field>
+      <field name="res_model">training.subject</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Subject" id="training.menu_training_subject" parent="training.menu_training_root"
+      action="action_training_subject_tree" sequence="40"/>
+  </data>
+</odoo>

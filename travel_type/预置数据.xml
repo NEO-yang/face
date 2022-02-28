@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+==================================================
+@创建人: 杨兴财
+@当前维护人: 杨兴财
+@Desc: 差旅费类型预置数据
+==================================================
+-->
+<odoo>
+    <data>
+        <!-- 飞机票 -->
+        <record id="mdm_travel_expense_type_airplane" model="mdm.travel.expense.type">
+            <field name="number">SYS001</field>
+            <field name="name">Airplane</field>
+            <field name="inv_type_id" ref="ps_mdm.mdm_invoice_type_0008"></field>
+            <field name="is_traffic_tool_required">True</field>
+            <field name="traffic_tool_ids" eval="[(6,0,[ref('ps_mdm.mdm_traffic_tools_airplane')])]"></field>
+            <field name="is_name_required">True</field>
+            <field name="is_sys_default">True</field> 
+            <field name="state">audit</field>
+            <field name="forbid_state">normal</field>
+            <field name="delete_state">normal</field>
+        </record>
+
+        <!-- 火车票 -->
+        <record id="mdm_travel_expense_type_train" model="mdm.travel.expense.type">
+            <field name="number">SYS002</field>
+            <field name="name">Train</field>
+            <field name="inv_type_id" ref="ps_mdm.mdm_invoice_type_0007"></field>
+            <field name="is_name_required">True</field>
+            <field name="is_traffic_tool_required">True</field>
+            <field name="traffic_tool_ids" eval="[(6,0,[
+                ref('ps_mdm.mdm_traffic_tools_high_speed_railway'), 
+                ref('ps_mdm.mdm_traffic_tools_train'), 
+                ref('ps_mdm.mdm_traffic_tools_all_soft_seat_train')])]"></field>
+            <field name="is_sys_default">True</field> 
+            <field name="state">audit</field>
+            <field name="forbid_state">normal</field>
+            <field name="delete_state">normal</field>
+        </record>
+
+        <!-- 汽车票 -->
+        <record id="mdm_travel_expense_type_bus" model="mdm.travel.expense.type">
+            <field name="number">SYS003</field>
+            <field name="name">Bus</field>
+            <field name="inv_type_id" ref="ps_mdm.mdm_invoice_type_0009"></field>
+            <field name="is_name_required">True</field>
+            <field name="is_traffic_tool_required">True</field>
+            <field name="traffic_tool_ids" eval="[(6,0,[ref('ps_mdm.mdm_traffic_tools_bus')])]"></field>
+            <field name="is_sys_default">True</field> 
+            <field name="state">audit</field>
+            <field name="forbid_state">normal</field>
+            <field name="delete_state">normal</field>
+        </record>
+
+        <!-- 轮船票 -->
+        <record id="mdm_travel_expense_type_steamship" model="mdm.travel.expense.type">
+            <field name="number">SYS004</field>
+            <field name="name">Steamship</field>
+            <field name="inv_type_id" ref="ps_mdm.mdm_invoice_type_0009"></field>
+            <field name="is_traffic_tool_required">True</field>
+            <field name="traffic_tool_ids" eval="[(6,0,[ref('ps_mdm.mdm_traffic_tools_steamship')])]"></field>
+            <field name="is_name_required">True</field>
+            <field name="is_sys_default">True</field> 
+            <field name="state">audit</field>
+            <field name="forbid_state">normal</field>
+            <field name="delete_state">normal</field>
+        </record>
+
+        <!-- 住宿费 -->
+        <record id="mdm_travel_expense_type_accom_fee" model="mdm.travel.expense.type">
+            <field name="number">SYS005</field>
+            <field name="name">Accom Fee</field>
+            <field name="is_name_required">False</field>
+            <field name="is_sys_default">True</field> 
+            <field name="state">audit</field>
+            <field name="forbid_state">normal</field>
+            <field name="delete_state">normal</field>
+        </record>
+
+        <!-- 出差补助 -->
+        <record id="mdm_travel_expense_type_travel_subsidy" model="mdm.travel.expense.type">
+            <field name="number">SYS006</field>
+            <field name="name">Travel Subsidy</field>
+            <field name="is_name_required">False</field>
+            <field name="is_sys_default">True</field> 
+            <field name="state">audit</field>
+            <field name="forbid_state">normal</field>
+            <field name="delete_state">normal</field>
+        </record>
+
+        <!-- 市内交通费 -->
+        <record id="mdm_travel_expense_type_local_cost" model="mdm.travel.expense.type">
+            <field name="number">SYS007</field>
+            <field name="name">Local Cost</field>
+            <field name="is_sys_default">True</field> 
+            <field name="is_name_required">False</field>
+            <field name="state">audit</field>
+            <field name="forbid_state">normal</field>
+            <field name="delete_state">normal</field>
+        </record>
+
+        <!-- 其他费用 -->
+        <record id="mdm_travel_expense_type_other_expense" model="mdm.travel.expense.type">
+            <field name="number">SYS008</field>
+            <field name="name">Other Expense</field>
+            <field name="is_sys_default">True</field> 
+            <field name="is_name_required">False</field>
+            <field name="state">audit</field>
+            <field name="forbid_state">normal</field>
+            <field name="delete_state">normal</field>
+        </record>
+
+        <!-- 保险费 -->
+        <record id="mdm_travel_expense_type_insurance_expense" model="mdm.travel.expense.type">
+            <field name="number">SYS009</field>
+            <field name="name">Insurance Expense</field>
+            <field name="is_sys_default">True</field> 
+            <field name="is_name_required">False</field>
+            <field name="state">audit</field>
+            <field name="forbid_state">normal</field>
+            <field name="delete_state">normal</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_training_teacher_manager,training.teacher.manager,model_training_teacher,,1,1,1,1
+access_training_student_manager,training.student.manager,model_training_student,,1,1,1,1
+access_training_subject_manager,training.subject.manager,model_training_subject,,1,1,1,1
+access_training_lesson_manager,training.lesson.manager,model_training_lesson,,1,1,1,1

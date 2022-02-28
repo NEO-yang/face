@@ -1,0 +1,453 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+  <data noupdate="1">
+    <record model="acc.center.rs.condition.setting" id="ps_post.cm_payable_bill__acc_center_rs_condition_setting__1">
+      <field name="name">Purchase Payment(Not Advance)</field>
+      <field name="model_id" search="[('model', '=', 'cm.payable.bill.line1')]"/>
+      <field name="filter_domain">[["parent_id.real_doc_type","=","purchase"], ["is_advance","=",False]]</field>
+    </record>
+    <record model="acc.center.reconciliation.scheme.line1.line2" id="ps_post.acc_center_reconciliation_scheme_line1_line2_02">
+      <field name="biz_data_type">decrease</field>
+      <field name="condition_id" ref="ps_post.cm_payable_bill__acc_center_rs_condition_setting__1"/>
+      <field name="curr_field_id" search="[('model', '=', 'cm.payable.bill'), ('name', '=', 'sett_curr_id')]"/>
+      <field name="d_corr_doc_field_id" search="[('model', '=', 'cm.payable.bill'), ('name', '=', 'contact_dept')]"/>
+      <field name="d_corr_filed_model_id" search="[('model', '=', 'mdm.supplier')]"/>
+      <field name="doc_date_field_id" search="[('model', '=', 'cm.payable.bill'), ('name', '=', 'biz_date')]"/>
+      <field name="doc_field_id" search="[('model', '=', 'cm.payable.bill.line1'), ('name', '=', 'pay_amount')]"/>
+      <field name="doc_filed_model_id" search="[('model', '=', 'cm.payable.bill.line1')]"/>
+      <field name="model_id" search="[('model', '=', 'cm.payable.bill')]"/>
+      <field name="sett_org_field_id" search="[('model', '=', 'cm.payable.bill'), ('name', '=', 'sett_org_id')]"/>
+    </record>
+    <record model="acc.center.rs.condition.setting" id="ps_post.ap_payable__acc_center_rs_condition_setting__1">
+      <field name="name">Business AP</field>
+      <field name="model_id" search="[('model', '=', 'ap.payable')]"/>
+      <field name="filter_domain">[["biz_type","=","biz"]]</field>
+    </record>
+    <record model="acc.center.reconciliation.scheme.line1.line2" id="ps_post.acc_center_reconciliation_scheme_line1_line2_01">
+      <field name="biz_data_type">increase</field>
+      <field name="condition_id" ref="ps_post.ap_payable__acc_center_rs_condition_setting__1"/>
+      <field name="curr_field_id" search="[('model', '=', 'ap.payable'), ('name', '=', 'currency_id')]"/>
+      <field name="d_corr_doc_field_id" search="[('model', '=', 'ap.payable'), ('name', '=', 'supl_id')]"/>
+      <field name="d_corr_filed_model_id" search="[('model', '=', 'mdm.supplier')]"/>
+      <field name="doc_date_field_id" search="[('model', '=', 'ap.payable'), ('name', '=', 'biz_date')]"/>
+      <field name="doc_field_id" search="[('model', '=', 'ap.payable'), ('name', '=', 'amount_tax_total')]"/>
+      <field name="doc_filed_model_id" search="[('model', '=', 'ap.payable')]"/>
+      <field name="model_id" search="[('model', '=', 'ap.payable')]"/>
+      <field name="sett_org_field_id" search="[('model', '=', 'ap.payable'), ('name', '=', 'sett_org_id')]"/>
+    </record>
+    <record model="acc.center.rs.condition.setting" id="ps_post.cm_payable_refund_bill__acc_center_rs_condition_setting__1">
+      <field name="name">Purchase Business Refund (Not Advance)</field>
+      <field name="model_id" search="[('model', '=', 'cm.payable.refund.bill.line1')]"/>
+      <field name="filter_domain">[["parent_id.real_doc_type","=","purchase_refund"], ["is_advance","=",False]]</field>
+    </record>
+    <record model="acc.center.reconciliation.scheme.line1.line2" id="ps_post.acc_center_reconciliation_scheme_line1_line2_03">
+      <field name="biz_data_type">decrease</field>
+      <field name="condition_id" ref="ps_post.cm_payable_refund_bill__acc_center_rs_condition_setting__1"/>
+      <field name="curr_field_id" search="[('model', '=', 'cm.payable.refund.bill'), ('name', '=', 'sett_curr_id')]"/>
+      <field name="d_corr_doc_field_id" search="[('model', '=', 'cm.payable.refund.bill'), ('name', '=', 'contact_dept')]"/>
+      <field name="d_corr_filed_model_id" search="[('model', '=', 'mdm.supplier')]"/>
+      <field name="doc_date_field_id" search="[('model', '=', 'cm.payable.refund.bill'), ('name', '=', 'biz_date')]"/>
+      <field name="doc_field_id" search="[('model', '=', 'cm.payable.refund.bill.line1'), ('name', '=', 'pay_amount')]"/>
+      <field name="doc_filed_model_id" search="[('model', '=', 'cm.payable.refund.bill.line1')]"/>
+      <field name="model_id" search="[('model', '=', 'cm.payable.refund.bill')]"/>
+      <field name="sett_org_field_id" search="[('model', '=', 'cm.payable.refund.bill'), ('name', '=', 'sett_org_id')]"/>
+    </record>
+    <record model="acc.center.rs.condition.setting" id="ps_post.arap_recon_record__acc_center_rs_condition_setting__1">
+      <field name="name">Payble/Purchase Payment(Advance)</field>
+      <field name="model_id" search="[('model', '=', 'arap.recon.record')]"/>
+      <field name="filter_domain">["|", ["biz_model_id.model","=","ap.payable.line1.plan"], ["biz_model_id.model","=","cm.payable.bill.line1"], ["is_advance","=",True], ["recon_amount","&gt;",0]]</field>
+    </record>
+    <record model="acc.center.reconciliation.scheme.line1.line2" id="ps_post.acc_center_reconciliation_scheme_line1_line2_04">
+      <field name="biz_data_type">decrease</field>
+      <field name="condition_id" ref="ps_post.arap_recon_record__acc_center_rs_condition_setting__1"/>
+      <field name="curr_field_id" search="[('model', '=', 'arap.recon.record'), ('name', '=', 'currency_id')]"/>
+      <field name="d_corr_doc_field_id" search="[('model', '=', 'arap.recon.record'), ('name', '=', 'contact_dept')]"/>
+      <field name="d_corr_filed_model_id" search="[('model', '=', 'mdm.supplier')]"/>
+      <field name="doc_date_field_id" search="[('model', '=', 'arap.recon.record'), ('name', '=', 'biz_date')]"/>
+      <field name="doc_field_id" search="[('model', '=', 'arap.recon.record'), ('name', '=', 'recon_amount')]"/>
+      <field name="doc_filed_model_id" search="[('model', '=', 'arap.recon.record')]"/>
+      <field name="model_id" search="[('model', '=', 'arap.recon.record')]"/>
+      <field name="sett_org_field_id" search="[('model', '=', 'arap.recon.record'), ('name', '=', 'sett_org_id')]"/>
+    </record>
+    <record model="acc.center.rs.condition.setting" id="ps_post.arap_recon_record__acc_center_rs_condition_setting__2">
+      <field name="name">Red Payble/Purchase Business Refund (Advance)</field>
+      <field name="model_id" search="[('model', '=', 'arap.recon.record')]"/>
+      <field name="filter_domain">["|",["biz_model_id.model","=","ap.payable.line1.plan"], ["biz_model_id.model","=","cm.payable.refund.bill.line1"], ["is_advance","=",True], ["recon_amount","&lt;",0]]</field>
+    </record>
+    <record model="acc.center.reconciliation.scheme.line1.line2" id="ps_post.acc_center_reconciliation_scheme_line1_line2_05">
+      <field name="biz_data_type">decrease</field>
+      <field name="condition_id" ref="ps_post.arap_recon_record__acc_center_rs_condition_setting__2"/>
+      <field name="curr_field_id" search="[('model', '=', 'arap.recon.record'), ('name', '=', 'currency_id')]"/>
+      <field name="d_corr_doc_field_id" search="[('model', '=', 'arap.recon.record'), ('name', '=', 'contact_dept')]"/>
+      <field name="d_corr_filed_model_id" search="[('model', '=', 'mdm.supplier')]"/>
+      <field name="doc_date_field_id" search="[('model', '=', 'arap.recon.record'), ('name', '=', 'biz_date')]"/>
+      <field name="doc_field_id" search="[('model', '=', 'arap.recon.record'), ('name', '=', 'recon_amount')]"/>
+      <field name="doc_filed_model_id" search="[('model', '=', 'arap.recon.record')]"/>
+      <field name="model_id" search="[('model', '=', 'arap.recon.record')]"/>
+      <field name="sett_org_field_id" search="[('model', '=', 'arap.recon.record'), ('name', '=', 'sett_org_id')]"/>
+    </record>
+    <record model="acc.center.rs.condition.setting" id="ps_post.cm_payable_bill__acc_center_rs_condition_setting__2">
+      <field name="name">Purchase Payment(Advance)</field>
+      <field name="model_id" search="[('model', '=', 'cm.payable.bill.line1')]"/>
+      <field name="filter_domain">[["parent_id.real_doc_type","=","purchase"], ["is_advance","=",True]]</field>
+    </record>
+    <record model="acc.center.reconciliation.scheme.line1.line2" id="ps_post.acc_center_reconciliation_scheme_line1_line2_06">
+      <field name="biz_data_type">increase</field>
+      <field name="condition_id" ref="ps_post.cm_payable_bill__acc_center_rs_condition_setting__2"/>
+      <field name="curr_field_id" search="[('model', '=', 'cm.payable.bill'), ('name', '=', 'sett_curr_id')]"/>
+      <field name="d_corr_doc_field_id" search="[('model', '=', 'cm.payable.bill'), ('name', '=', 'contact_dept')]"/>
+      <field name="d_corr_filed_model_id" search="[('model', '=', 'mdm.supplier')]"/>
+      <field name="doc_date_field_id" search="[('model', '=', 'cm.payable.bill'), ('name', '=', 'biz_date')]"/>
+      <field name="doc_field_id" search="[('model', '=', 'cm.payable.bill.line1'), ('name', '=', 'pay_amount')]"/>
+      <field name="doc_filed_model_id" search="[('model', '=', 'cm.payable.bill.line1')]"/>
+      <field name="model_id" search="[('model', '=', 'cm.payable.bill')]"/>
+      <field name="sett_org_field_id" search="[('model', '=', 'cm.payable.bill'), ('name', '=', 'sett_org_id')]"/>
+    </record>
+    <record model="acc.center.rs.condition.setting" id="ps_post.arap_recon_record__acc_center_rs_condition_setting__4">
+      <field name="name">Red Payble/Purchase Business Refund (Advance)</field>
+      <field name="model_id" search="[('model', '=', 'arap.recon.record')]"/>
+      <field name="filter_domain">["|",["biz_model_id.model","=","ap.payable.line1.plan"], ["biz_model_id.model","=","cm.payable.refund.bill.line1"], ["is_advance","=",True], ["recon_amount","&lt;",0]]</field>
+    </record>
+    <record model="acc.center.reconciliation.scheme.line1.line2" id="ps_post.acc_center_reconciliation_scheme_line1_line2_09">
+      <field name="biz_data_type">decrease</field>
+      <field name="condition_id" ref="ps_post.arap_recon_record__acc_center_rs_condition_setting__4"/>
+      <field name="curr_field_id" search="[('model', '=', 'ap.payable'), ('name', '=', 'currency_id')]"/>
+      <field name="d_corr_doc_field_id" search="[('model', '=', 'arap.recon.record'), ('name', '=', 'contact_dept')]"/>
+      <field name="d_corr_filed_model_id" search="[('model', '=', 'mdm.supplier')]"/>
+      <field name="doc_date_field_id" search="[('model', '=', 'arap.recon.record'), ('name', '=', 'biz_date')]"/>
+      <field name="doc_field_id" search="[('model', '=', 'arap.recon.record'), ('name', '=', 'recon_amount')]"/>
+      <field name="doc_filed_model_id" search="[('model', '=', 'arap.recon.record')]"/>
+      <field name="model_id" search="[('model', '=', 'arap.recon.record')]"/>
+      <field name="sett_org_field_id" search="[('model', '=', 'ap.payable'), ('name', '=', 'sett_org_id')]"/>
+    </record>
+    <record model="acc.center.rs.condition.setting" id="ps_post.cm_payable_refund_bill__acc_center_rs_condition_setting__2">
+      <field name="name">Purchase Business Refund (Advance)</field>
+      <field name="model_id" search="[('model', '=', 'cm.payable.refund.bill.line1')]"/>
+      <field name="filter_domain">[["parent_id.real_doc_type","=","purchase_refund"], ["is_advance","=",True]]</field>
+    </record>
+    <record model="acc.center.reconciliation.scheme.line1.line2" id="ps_post.acc_center_reconciliation_scheme_line1_line2_07">
+      <field name="biz_data_type">increase</field>
+      <field name="condition_id" ref="ps_post.cm_payable_refund_bill__acc_center_rs_condition_setting__2"/>
+      <field name="curr_field_id" search="[('model', '=', 'cm.payable.refund.bill'), ('name', '=', 'sett_curr_id')]"/>
+      <field name="d_corr_doc_field_id" search="[('model', '=', 'cm.payable.refund.bill'), ('name', '=', 'contact_dept')]"/>
+      <field name="d_corr_filed_model_id" search="[('model', '=', 'mdm.supplier')]"/>
+      <field name="doc_date_field_id" search="[('model', '=', 'cm.payable.refund.bill'), ('name', '=', 'biz_date')]"/>
+      <field name="doc_field_id" search="[('model', '=', 'cm.payable.refund.bill.line1'), ('name', '=', 'pay_amount')]"/>
+      <field name="doc_filed_model_id" search="[('model', '=', 'cm.payable.refund.bill.line1')]"/>
+      <field name="model_id" search="[('model', '=', 'cm.payable.refund.bill')]"/>
+      <field name="sett_org_field_id" search="[('model', '=', 'cm.payable.refund.bill'), ('name', '=', 'sett_org_id')]"/>
+    </record>
+    <record model="acc.center.rs.condition.setting" id="ps_post.arap_recon_record__acc_center_rs_condition_setting__3">
+      <field name="name">Payble/Purchase Payment(Advance)</field>
+      <field name="model_id" search="[('model', '=', 'arap.recon.record')]"/>
+      <field name="filter_domain">["|",["biz_model_id.model","=","ap.payable.line1.plan"],["biz_model_id.model","=","cm.payable.bill.line1"],["is_advance","=",True],["recon_amount","&gt;",0]]</field>
+    </record>
+    <record model="acc.center.reconciliation.scheme.line1.line2" id="ps_post.acc_center_reconciliation_scheme_line1_line2_08">
+      <field name="biz_data_type">decrease</field>
+      <field name="condition_id" ref="ps_post.arap_recon_record__acc_center_rs_condition_setting__3"/>
+      <field name="curr_field_id" search="[('model', '=', 'arap.recon.record'), ('name', '=', 'currency_id')]"/>
+      <field name="d_corr_doc_field_id" search="[('model', '=', 'arap.recon.record'), ('name', '=', 'contact_dept')]"/>
+      <field name="d_corr_filed_model_id" search="[('model', '=', 'mdm.supplier')]"/>
+      <field name="doc_date_field_id" search="[('model', '=', 'arap.recon.record'), ('name', '=', 'biz_date')]"/>
+      <field name="doc_field_id" search="[('model', '=', 'arap.recon.record'), ('name', '=', 'recon_amount')]"/>
+      <field name="doc_filed_model_id" search="[('model', '=', 'arap.recon.record')]"/>
+      <field name="model_id" search="[('model', '=', 'arap.recon.record')]"/>
+      <field name="sett_org_field_id" search="[('model', '=', 'arap.recon.record'), ('name', '=', 'sett_org_id')]"/>
+    </record>
+    <record model="acc.center.rs.condition.setting" id="ps_post.cm_payable_bill__acc_center_rs_condition_setting__3">
+      <field name="name">Other Payment(Other Expenses)</field>
+      <field name="model_id" search="[('model', '=', 'cm.payable.bill.line1')]"/>
+      <field name="filter_domain">[["parent_id.real_doc_type","=","other"], ["pay_type_num","=","SFKYT019"]]</field>
+    </record>
+    <record model="acc.center.reconciliation.scheme.line1.line2" id="ps_post.acc_center_reconciliation_scheme_line1_line2_13">
+      <field name="biz_data_type">decrease</field>
+      <field name="condition_id" ref="ps_post.cm_payable_bill__acc_center_rs_condition_setting__3"/>
+      <field name="curr_field_id" search="[('model', '=', 'cm.payable.bill'), ('name', '=', 'sett_curr_id')]"/>
+      <field name="d_corr_doc_field_id" search="[('model', '=', 'cm.payable.bill'), ('name', '=', 'contact_dept')]"/>
+      <field name="d_corr_filed_model_id" search="[('model', '=', 'mdm.customer')]"/>
+      <field name="doc_date_field_id" search="[('model', '=', 'cm.payable.bill'), ('name', '=', 'biz_date')]"/>
+      <field name="doc_field_id" search="[('model', '=', 'cm.payable.bill.line1'), ('name', '=', 'pay_amount')]"/>
+      <field name="doc_filed_model_id" search="[('model', '=', 'cm.payable.bill.line1')]"/>
+      <field name="model_id" search="[('model', '=', 'cm.payable.bill')]"/>
+      <field name="sett_org_field_id" search="[('model', '=', 'cm.payable.bill'), ('name', '=', 'sett_org_id')]"/>
+    </record>
+    <record model="acc.center.rs.condition.setting" id="ps_post.cm_payable_refund_bill__acc_center_rs_condition_setting__3">
+      <field name="name">Other Business Refund (Other Expenses)</field>
+      <field name="model_id" search="[('model', '=', 'cm.payable.refund.bill.line1')]"/>
+      <field name="filter_domain">[["parent_id.real_doc_type","=","other_refund"],["pay_type_num","=","SFKYT019"]]</field>
+    </record>
+    <record model="acc.center.reconciliation.scheme.line1.line2" id="ps_post.acc_center_reconciliation_scheme_line1_line2_14">
+      <field name="biz_data_type">decrease</field>
+      <field name="condition_id" ref="ps_post.cm_payable_refund_bill__acc_center_rs_condition_setting__3"/>
+      <field name="curr_field_id" search="[('model', '=', 'cm.payable.refund.bill'), ('name', '=', 'sett_curr_id')]"/>
+      <field name="d_corr_doc_field_id" search="[('model', '=', 'cm.payable.refund.bill'), ('name', '=', 'contact_dept')]"/>
+      <field name="d_corr_filed_model_id" search="[('model', '=', 'mdm.customer')]"/>
+      <field name="doc_date_field_id" search="[('model', '=', 'cm.payable.refund.bill'), ('name', '=', 'biz_date')]"/>
+      <field name="doc_field_id" search="[('model', '=', 'cm.payable.refund.bill.line1'), ('name', '=', 'pay_amount')]"/>
+      <field name="doc_filed_model_id" search="[('model', '=', 'cm.payable.refund.bill.line1')]"/>
+      <field name="model_id" search="[('model', '=', 'cm.payable.refund.bill')]"/>
+      <field name="sett_org_field_id" search="[('model', '=', 'cm.payable.refund.bill'), ('name', '=', 'sett_org_id')]"/>
+    </record>
+    <record model="acc.center.rs.condition.setting" id="ps_post.cm_receivable_refund_bill__acc_center_rs_condition_setting__1">
+      <field name="name">Other Business Refund (Delegate Receivables)</field>
+      <field name="model_id" search="[('model', '=', 'cm.receivable.refund.bill.line1.sale')]"/>
+      <field name="filter_domain">[["parent_id.real_doc_type","=","other_refund"], ["biz_type_number","=","SFKYT008"]]</field>
+    </record>
+    <record model="acc.center.reconciliation.scheme.line1.line2" id="ps_post.acc_center_reconciliation_scheme_line1_line2_12">
+      <field name="biz_data_type">increase</field>
+      <field name="condition_id" ref="ps_post.cm_receivable_refund_bill__acc_center_rs_condition_setting__1"/>
+      <field name="curr_field_id" search="[('model', '=', 'cm.receivable.refund.bill'), ('name', '=', 'currency_id')]"/>
+      <field name="d_corr_doc_field_id" search="[('model', '=', 'cm.receivable.refund.bill'), ('name', '=', 'contact_dept')]"/>
+      <field name="d_corr_filed_model_id" search="[('model', '=', 'mdm.customer')]"/>
+      <field name="doc_date_field_id" search="[('model', '=', 'cm.receivable.refund.bill'), ('name', '=', 'biz_date')]"/>
+      <field name="doc_field_id" search="[('model', '=', 'cm.receivable.refund.bill.line1.sale'), ('name', '=', 'recv_amount')]"/>
+      <field name="doc_filed_model_id" search="[('model', '=', 'cm.receivable.refund.bill.line1.sale')]"/>
+      <field name="model_id" search="[('model', '=', 'cm.receivable.refund.bill')]"/>
+      <field name="sett_org_field_id" search="[('model', '=', 'cm.receivable.refund.bill'), ('name', '=', 'sett_org_id')]"/>
+    </record>
+    <record model="acc.center.reconciliation.scheme.line1.line2" id="ps_post.acc_center_reconciliation_scheme_line1_line2_10">
+      <field name="biz_data_type">increase</field>
+      <field name="curr_field_id" search="[('model', '=', 'ap.other.payable'), ('name', '=', 'currency_id')]"/>
+      <field name="d_corr_doc_field_id" search="[('model', '=', 'ap.other.payable'), ('name', '=', 'contact_dept')]"/>
+      <field name="d_corr_filed_model_id" search="[('model', '=', 'mdm.customer')]"/>
+      <field name="doc_date_field_id" search="[('model', '=', 'ap.other.payable'), ('name', '=', 'biz_date')]"/>
+      <field name="doc_field_id" search="[('model', '=', 'ap.other.payable'), ('name', '=', 'amount_total')]"/>
+      <field name="doc_filed_model_id" search="[('model', '=', 'ap.other.payable')]"/>
+      <field name="model_id" search="[('model', '=', 'ap.other.payable')]"/>
+      <field name="sett_org_field_id" search="[('model', '=', 'ap.other.payable'), ('name', '=', 'sett_org_id')]"/>
+    </record>
+    <record model="acc.center.rs.condition.setting" id="ps_post.cm_receivable_bill__acc_center_rs_condition_setting__1">
+      <field name="name">Other Payment(Delegate Receivables)</field>
+      <field name="model_id" search="[('model', '=', 'cm.receivable.bill.line1.sale')]"/>
+      <field name="filter_domain">[["parent_id.real_doc_type","=","other"],["biz_type_number","=","SFKYT008"]]</field>
+    </record>
+    <record model="acc.center.reconciliation.scheme.line1.line2" id="ps_post.acc_center_reconciliation_scheme_line1_line2_11">
+      <field name="biz_data_type">increase</field>
+      <field name="condition_id" ref="ps_post.cm_receivable_bill__acc_center_rs_condition_setting__1"/>
+      <field name="curr_field_id" search="[('model', '=', 'cm.receivable.bill'), ('name', '=', 'currency_id')]"/>
+      <field name="d_corr_doc_field_id" search="[('model', '=', 'cm.receivable.bill'), ('name', '=', 'contact_dept')]"/>
+      <field name="d_corr_filed_model_id" search="[('model', '=', 'mdm.customer')]"/>
+      <field name="doc_date_field_id" search="[('model', '=', 'cm.receivable.bill'), ('name', '=', 'biz_date')]"/>
+      <field name="doc_field_id" search="[('model', '=', 'cm.receivable.bill.line1.sale'), ('name', '=', 'recv_amount')]"/>
+      <field name="doc_filed_model_id" search="[('model', '=', 'cm.receivable.bill.line1.sale')]"/>
+      <field name="model_id" search="[('model', '=', 'cm.receivable.bill')]"/>
+      <field name="sett_org_field_id" search="[('model', '=', 'cm.receivable.bill'), ('name', '=', 'sett_org_id')]"/>
+    </record>
+    <record model="acc.center.rs.condition.setting" id="ps_post.cm_payable_bill__acc_center_rs_condition_setting__4">
+      <field name="name">Other Payment(Other Expenses)</field>
+      <field name="model_id" search="[('model', '=', 'cm.payable.bill.line1')]"/>
+      <field name="filter_domain">[["parent_id.real_doc_type","=","other"], ["pay_type_num","=","SFKYT019"]]</field>
+    </record>
+    <record model="acc.center.reconciliation.scheme.line1.line2" id="ps_post.acc_center_reconciliation_scheme_line1_line2_18">
+      <field name="biz_data_type">decrease</field>
+      <field name="condition_id" ref="ps_post.cm_payable_bill__acc_center_rs_condition_setting__4"/>
+      <field name="curr_field_id" search="[('model', '=', 'cm.payable.bill'), ('name', '=', 'sett_curr_id')]"/>
+      <field name="d_corr_doc_field_id" search="[('model', '=', 'cm.payable.bill'), ('name', '=', 'contact_dept')]"/>
+      <field name="d_corr_filed_model_id" search="[('model', '=', 'mdm.supplier')]"/>
+      <field name="doc_date_field_id" search="[('model', '=', 'cm.payable.bill'), ('name', '=', 'biz_date')]"/>
+      <field name="doc_field_id" search="[('model', '=', 'cm.payable.bill.line1'), ('name', '=', 'pay_amount')]"/>
+      <field name="doc_filed_model_id" search="[('model', '=', 'cm.payable.bill.line1')]"/>
+      <field name="model_id" search="[('model', '=', 'cm.payable.bill')]"/>
+      <field name="sett_org_field_id" search="[('model', '=', 'cm.payable.bill'), ('name', '=', 'sett_org_id')]"/>
+    </record>
+    <record model="acc.center.rs.condition.setting" id="ps_post.cm_payable_refund_bill__acc_center_rs_condition_setting__4">
+      <field name="name">Other Business Refund (Other Expenses)</field>
+      <field name="model_id" search="[('model', '=', 'cm.payable.refund.bill.line1')]"/>
+      <field name="filter_domain">[["parent_id.real_doc_type","=","other_refund"],["pay_type_num","=","SFKYT019"]]</field>
+    </record>
+    <record model="acc.center.reconciliation.scheme.line1.line2" id="ps_post.acc_center_reconciliation_scheme_line1_line2_19">
+      <field name="biz_data_type">decrease</field>
+      <field name="condition_id" ref="ps_post.cm_payable_refund_bill__acc_center_rs_condition_setting__4"/>
+      <field name="curr_field_id" search="[('model', '=', 'cm.payable.refund.bill'), ('name', '=', 'sett_curr_id')]"/>
+      <field name="d_corr_doc_field_id" search="[('model', '=', 'cm.payable.refund.bill'), ('name', '=', 'contact_dept')]"/>
+      <field name="d_corr_filed_model_id" search="[('model', '=', 'mdm.supplier')]"/>
+      <field name="doc_date_field_id" search="[('model', '=', 'cm.payable.refund.bill'), ('name', '=', 'biz_date')]"/>
+      <field name="doc_field_id" search="[('model', '=', 'cm.payable.refund.bill.line1'), ('name', '=', 'pay_amount')]"/>
+      <field name="doc_filed_model_id" search="[('model', '=', 'cm.payable.refund.bill.line1')]"/>
+      <field name="model_id" search="[('model', '=', 'cm.payable.refund.bill')]"/>
+      <field name="sett_org_field_id" search="[('model', '=', 'cm.payable.refund.bill'), ('name', '=', 'sett_org_id')]"/>
+    </record>
+    <record model="acc.center.rs.condition.setting" id="ps_post.cm_receivable_refund_bill__acc_center_rs_condition_setting__2">
+      <field name="name">Other Business Refund (Delegate Receivables)</field>
+      <field name="model_id" search="[('model', '=', 'cm.receivable.refund.bill.line1.sale')]"/>
+      <field name="filter_domain">[["parent_id.real_doc_type","=","other_refund"], ["biz_type_number","=","SFKYT008"]]</field>
+    </record>
+    <record model="acc.center.reconciliation.scheme.line1.line2" id="ps_post.acc_center_reconciliation_scheme_line1_line2_17">
+      <field name="biz_data_type">increase</field>
+      <field name="condition_id" ref="ps_post.cm_receivable_refund_bill__acc_center_rs_condition_setting__2"/>
+      <field name="curr_field_id" search="[('model', '=', 'cm.receivable.refund.bill'), ('name', '=', 'currency_id')]"/>
+      <field name="d_corr_doc_field_id" search="[('model', '=', 'cm.receivable.refund.bill'), ('name', '=', 'contact_dept')]"/>
+      <field name="d_corr_filed_model_id" search="[('model', '=', 'mdm.supplier')]"/>
+      <field name="doc_date_field_id" search="[('model', '=', 'cm.receivable.refund.bill'), ('name', '=', 'biz_date')]"/>
+      <field name="doc_field_id" search="[('model', '=', 'cm.receivable.refund.bill.line1.sale'), ('name', '=', 'recv_amount')]"/>
+      <field name="doc_filed_model_id" search="[('model', '=', 'cm.receivable.refund.bill.line1.sale')]"/>
+      <field name="model_id" search="[('model', '=', 'cm.receivable.refund.bill')]"/>
+      <field name="sett_org_field_id" search="[('model', '=', 'cm.receivable.refund.bill'), ('name', '=', 'sett_org_id')]"/>
+    </record>
+    <record model="acc.center.reconciliation.scheme.line1.line2" id="ps_post.acc_center_reconciliation_scheme_line1_line2_15">
+      <field name="biz_data_type">increase</field>
+      <field name="curr_field_id" search="[('model', '=', 'ap.other.payable'), ('name', '=', 'currency_id')]"/>
+      <field name="d_corr_doc_field_id" search="[('model', '=', 'ap.other.payable'), ('name', '=', 'contact_dept')]"/>
+      <field name="d_corr_filed_model_id" search="[('model', '=', 'mdm.supplier')]"/>
+      <field name="doc_date_field_id" search="[('model', '=', 'ap.other.payable'), ('name', '=', 'biz_date')]"/>
+      <field name="doc_field_id" search="[('model', '=', 'ap.other.payable'), ('name', '=', 'amount_total')]"/>
+      <field name="doc_filed_model_id" search="[('model', '=', 'ap.other.payable')]"/>
+      <field name="model_id" search="[('model', '=', 'ap.other.payable')]"/>
+      <field name="sett_org_field_id" search="[('model', '=', 'ap.other.payable'), ('name', '=', 'sett_org_id')]"/>
+    </record>
+    <record model="acc.center.rs.condition.setting" id="ps_post.cm_receivable_bill__acc_center_rs_condition_setting__2">
+      <field name="name">Other Payment(Delegate Receivables)</field>
+      <field name="model_id" search="[('model', '=', 'cm.receivable.bill.line1.sale')]"/>
+      <field name="filter_domain">[["parent_id.real_doc_type","=","other"],["biz_type_number","=","SFKYT008"]]</field>
+    </record>
+    <record model="acc.center.reconciliation.scheme.line1.line2" id="ps_post.acc_center_reconciliation_scheme_line1_line2_16">
+      <field name="biz_data_type">increase</field>
+      <field name="condition_id" ref="ps_post.cm_receivable_bill__acc_center_rs_condition_setting__2"/>
+      <field name="curr_field_id" search="[('model', '=', 'cm.receivable.bill'), ('name', '=', 'currency_id')]"/>
+      <field name="d_corr_doc_field_id" search="[('model', '=', 'cm.receivable.bill'), ('name', '=', 'contact_dept')]"/>
+      <field name="d_corr_filed_model_id" search="[('model', '=', 'mdm.supplier')]"/>
+      <field name="doc_date_field_id" search="[('model', '=', 'cm.receivable.bill'), ('name', '=', 'biz_date')]"/>
+      <field name="doc_field_id" search="[('model', '=', 'cm.receivable.bill.line1.sale'), ('name', '=', 'recv_amount')]"/>
+      <field name="doc_filed_model_id" search="[('model', '=', 'cm.receivable.bill.line1.sale')]"/>
+      <field name="model_id" search="[('model', '=', 'cm.receivable.bill')]"/>
+      <field name="sett_org_field_id" search="[('model', '=', 'cm.receivable.bill'), ('name', '=', 'sett_org_id')]"/>
+    </record>
+    <record model="acc.center.rs.condition.setting" id="ps_post.cm_receivable_bill__acc_center_rs_condition_setting__3">
+      <field name="name">Other Payment(Delegate Receivables)</field>
+      <field name="model_id" search="[('model', '=', 'cm.receivable.bill.line1.sale')]"/>
+      <field name="filter_domain">[["parent_id.real_doc_type","=","other"],["biz_type_number","=","SFKYT008"]]</field>
+    </record>
+    <record model="acc.center.reconciliation.scheme.line1.line2" id="ps_post.acc_center_reconciliation_scheme_line1_line2_21">
+      <field name="biz_data_type">increase</field>
+      <field name="condition_id" ref="ps_post.cm_receivable_bill__acc_center_rs_condition_setting__3"/>
+      <field name="curr_field_id" search="[('model', '=', 'cm.receivable.bill'), ('name', '=', 'currency_id')]"/>
+      <field name="d_corr_doc_field_id" search="[('model', '=', 'cm.receivable.bill'), ('name', '=', 'contact_dept')]"/>
+      <field name="d_corr_filed_model_id" search="[('model', '=', 'mdm.employee')]"/>
+      <field name="doc_date_field_id" search="[('model', '=', 'cm.receivable.bill'), ('name', '=', 'biz_date')]"/>
+      <field name="doc_field_id" search="[('model', '=', 'cm.receivable.bill.line1.sale'), ('name', '=', 'recv_amount')]"/>
+      <field name="doc_filed_model_id" search="[('model', '=', 'cm.receivable.bill.line1.sale')]"/>
+      <field name="model_id" search="[('model', '=', 'cm.receivable.bill')]"/>
+      <field name="sett_org_field_id" search="[('model', '=', 'cm.receivable.bill'), ('name', '=', 'sett_org_id')]"/>
+    </record>
+    <record model="acc.center.rs.condition.setting" id="ps_post.cm_receivable_refund_bill__acc_center_rs_condition_setting__3">
+      <field name="name">Other Business Refund (Delegate Receivables)</field>
+      <field name="model_id" search="[('model', '=', 'cm.receivable.refund.bill.line1.sale')]"/>
+      <field name="filter_domain">[["parent_id.real_doc_type","=","other_refund"], ["biz_type_number","=","SFKYT008"]]</field>
+    </record>
+    <record model="acc.center.reconciliation.scheme.line1.line2" id="ps_post.acc_center_reconciliation_scheme_line1_line2_22">
+      <field name="biz_data_type">increase</field>
+      <field name="condition_id" ref="ps_post.cm_receivable_refund_bill__acc_center_rs_condition_setting__3"/>
+      <field name="curr_field_id" search="[('model', '=', 'cm.receivable.refund.bill'), ('name', '=', 'currency_id')]"/>
+      <field name="d_corr_doc_field_id" search="[('model', '=', 'cm.receivable.refund.bill'), ('name', '=', 'contact_dept')]"/>
+      <field name="d_corr_filed_model_id" search="[('model', '=', 'mdm.employee')]"/>
+      <field name="doc_date_field_id" search="[('model', '=', 'cm.receivable.refund.bill'), ('name', '=', 'biz_date')]"/>
+      <field name="doc_field_id" search="[('model', '=', 'cm.receivable.refund.bill.line1.sale'), ('name', '=', 'recv_amount')]"/>
+      <field name="doc_filed_model_id" search="[('model', '=', 'cm.receivable.refund.bill.line1.sale')]"/>
+      <field name="model_id" search="[('model', '=', 'cm.receivable.refund.bill')]"/>
+      <field name="sett_org_field_id" search="[('model', '=', 'cm.receivable.refund.bill'), ('name', '=', 'sett_org_id')]"/>
+    </record>
+    <record model="acc.center.reconciliation.scheme.line1.line2" id="ps_post.acc_center_reconciliation_scheme_line1_line2_20">
+      <field name="biz_data_type">increase</field>
+      <field name="curr_field_id" search="[('model', '=', 'ap.other.payable'), ('name', '=', 'currency_id')]"/>
+      <field name="d_corr_doc_field_id" search="[('model', '=', 'ap.other.payable'), ('name', '=', 'contact_dept')]"/>
+      <field name="d_corr_filed_model_id" search="[('model', '=', 'mdm.employee')]"/>
+      <field name="doc_date_field_id" search="[('model', '=', 'ap.other.payable'), ('name', '=', 'biz_date')]"/>
+      <field name="doc_field_id" search="[('model', '=', 'ap.other.payable'), ('name', '=', 'amount_total')]"/>
+      <field name="doc_filed_model_id" search="[('model', '=', 'ap.other.payable')]"/>
+      <field name="model_id" search="[('model', '=', 'ap.other.payable')]"/>
+      <field name="sett_org_field_id" search="[('model', '=', 'ap.other.payable'), ('name', '=', 'sett_org_id')]"/>
+    </record>
+    <record model="acc.center.rs.condition.setting" id="ps_post.cm_payable_refund_bill__acc_center_rs_condition_setting__5">
+      <field name="name">Other Business Refund (Reimbursement)</field>
+      <field name="model_id" search="[('model', '=', 'cm.payable.refund.bill.line1')]"/>
+      <field name="filter_domain">[["parent_id.real_doc_type","=","other_refund"],["pay_type_num","=","SFKYT015"]]</field>
+    </record>
+    <record model="acc.center.reconciliation.scheme.line1.line2" id="ps_post.acc_center_reconciliation_scheme_line1_line2_24">
+      <field name="biz_data_type">decrease</field>
+      <field name="condition_id" ref="ps_post.cm_payable_refund_bill__acc_center_rs_condition_setting__5"/>
+      <field name="curr_field_id" search="[('model', '=', 'cm.payable.refund.bill'), ('name', '=', 'sett_curr_id')]"/>
+      <field name="d_corr_doc_field_id" search="[('model', '=', 'cm.payable.refund.bill'), ('name', '=', 'contact_dept')]"/>
+      <field name="d_corr_filed_model_id" search="[('model', '=', 'mdm.employee')]"/>
+      <field name="doc_date_field_id" search="[('model', '=', 'cm.payable.refund.bill'), ('name', '=', 'biz_date')]"/>
+      <field name="doc_field_id" search="[('model', '=', 'cm.payable.refund.bill.line1'), ('name', '=', 'pay_amount')]"/>
+      <field name="doc_filed_model_id" search="[('model', '=', 'cm.payable.refund.bill.line1')]"/>
+      <field name="model_id" search="[('model', '=', 'cm.payable.refund.bill')]"/>
+      <field name="sett_org_field_id" search="[('model', '=', 'cm.payable.refund.bill'), ('name', '=', 'sett_org_id')]"/>
+    </record>
+    <record model="acc.center.rs.condition.setting" id="ps_post.cm_payable_bill__acc_center_rs_condition_setting__5">
+      <field name="name">Other Payment(Reimbursement)</field>
+      <field name="model_id" search="[('model', '=', 'cm.payable.bill.line1')]"/>
+      <field name="filter_domain">[["parent_id.real_doc_type","=","other"], ["pay_type_num","=","SFKYT015"]]</field>
+    </record>
+    <record model="acc.center.reconciliation.scheme.line1.line2" id="ps_post.acc_center_reconciliation_scheme_line1_line2_23">
+      <field name="biz_data_type">decrease</field>
+      <field name="condition_id" ref="ps_post.cm_payable_bill__acc_center_rs_condition_setting__5"/>
+      <field name="curr_field_id" search="[('model', '=', 'cm.payable.bill'), ('name', '=', 'sett_curr_id')]"/>
+      <field name="d_corr_doc_field_id" search="[('model', '=', 'cm.payable.bill'), ('name', '=', 'contact_dept')]"/>
+      <field name="d_corr_filed_model_id" search="[('model', '=', 'mdm.employee')]"/>
+      <field name="doc_date_field_id" search="[('model', '=', 'cm.payable.bill'), ('name', '=', 'biz_date')]"/>
+      <field name="doc_field_id" search="[('model', '=', 'cm.payable.bill.line1'), ('name', '=', 'pay_amount')]"/>
+      <field name="doc_filed_model_id" search="[('model', '=', 'cm.payable.bill.line1')]"/>
+      <field name="model_id" search="[('model', '=', 'cm.payable.bill')]"/>
+      <field name="sett_org_field_id" search="[('model', '=', 'cm.payable.bill'), ('name', '=', 'sett_org_id')]"/>
+    </record>
+    <record model="acc.center.reconciliation.scheme.line1" id="ps_post.acc_center_reconciliation_scheme_line1_01">
+      <field name="account_id" ref="ps_mdm.mdm_account_account_data_2202"/>
+      <field name="acct_book_id" ref="ps_mdm.mdm_account_book_data_01"/>
+      <field name="biz_doc_setting">Set</field>
+      <field name="biz_line_ids" eval="[(6, 0, [ref('ps_post.acc_center_reconciliation_scheme_line1_line2_02'), ref('ps_post.acc_center_reconciliation_scheme_line1_line2_01'), ref('ps_post.acc_center_reconciliation_scheme_line1_line2_03'), ref('ps_post.acc_center_reconciliation_scheme_line1_line2_04'), ref('ps_post.acc_center_reconciliation_scheme_line1_line2_05')])]"/>
+      <field name="dimension_id" ref="ps_mdm.mdm_account_dimension_supplier"/>
+      <field name="gl_decrease_field_id" search="[('model', '=', 'gl.account.balance'), ('name', '=', 'current_period_debit')]"/>
+      <field name="gl_increase_field_id" search="[('model', '=', 'gl.account.balance'), ('name', '=', 'current_period_credit')]"/>
+      <field name="sequence">1</field>
+    </record>
+    <record model="acc.center.reconciliation.scheme.line1" id="ps_post.acc_center_reconciliation_scheme_line1_02">
+      <field name="account_id" ref="ps_mdm.mdm_account_account_data_1123"/>
+      <field name="acct_book_id" ref="ps_mdm.mdm_account_book_data_01"/>
+      <field name="biz_doc_setting">Set</field>
+      <field name="biz_line_ids" eval="[(6, 0, [ref('ps_post.acc_center_reconciliation_scheme_line1_line2_06'), ref('ps_post.acc_center_reconciliation_scheme_line1_line2_09'), ref('ps_post.acc_center_reconciliation_scheme_line1_line2_07'), ref('ps_post.acc_center_reconciliation_scheme_line1_line2_08')])]"/>
+      <field name="dimension_id" ref="ps_mdm.mdm_account_dimension_supplier"/>
+      <field name="gl_decrease_field_id" search="[('model', '=', 'gl.account.balance'), ('name', '=', 'current_period_credit')]"/>
+      <field name="gl_increase_field_id" search="[('model', '=', 'gl.account.balance'), ('name', '=', 'current_period_debit')]"/>
+      <field name="sequence">2</field>
+    </record>
+    <record model="acc.center.reconciliation.scheme.line1" id="ps_post.acc_center_reconciliation_scheme_line1_03">
+      <field name="account_id" ref="ps_mdm.mdm_account_account_data_2241_01"/>
+      <field name="acct_book_id" ref="ps_mdm.mdm_account_book_data_01"/>
+      <field name="biz_doc_setting">Set</field>
+      <field name="biz_line_ids" eval="[(6, 0, [ref('ps_post.acc_center_reconciliation_scheme_line1_line2_13'), ref('ps_post.acc_center_reconciliation_scheme_line1_line2_14'), ref('ps_post.acc_center_reconciliation_scheme_line1_line2_12'), ref('ps_post.acc_center_reconciliation_scheme_line1_line2_10'), ref('ps_post.acc_center_reconciliation_scheme_line1_line2_11')])]"/>
+      <field name="dimension_id" ref="ps_mdm.mdm_account_dimension_customer"/>
+      <field name="gl_decrease_field_id" search="[('model', '=', 'gl.account.balance'), ('name', '=', 'current_period_debit')]"/>
+      <field name="gl_increase_field_id" search="[('model', '=', 'gl.account.balance'), ('name', '=', 'current_period_credit')]"/>
+      <field name="sequence">3</field>
+    </record>
+    <record model="acc.center.reconciliation.scheme.line1" id="ps_post.acc_center_reconciliation_scheme_line1_04">
+      <field name="account_id" ref="ps_mdm.mdm_account_account_data_2241_02"/>
+      <field name="acct_book_id" ref="ps_mdm.mdm_account_book_data_01"/>
+      <field name="biz_doc_setting">Set</field>
+      <field name="biz_line_ids" eval="[(6, 0, [ref('ps_post.acc_center_reconciliation_scheme_line1_line2_18'), ref('ps_post.acc_center_reconciliation_scheme_line1_line2_19'), ref('ps_post.acc_center_reconciliation_scheme_line1_line2_17'), ref('ps_post.acc_center_reconciliation_scheme_line1_line2_15'), ref('ps_post.acc_center_reconciliation_scheme_line1_line2_16')])]"/>
+      <field name="dimension_id" ref="ps_mdm.mdm_account_dimension_supplier"/>
+      <field name="gl_decrease_field_id" search="[('model', '=', 'gl.account.balance'), ('name', '=', 'current_period_debit')]"/>
+      <field name="gl_increase_field_id" search="[('model', '=', 'gl.account.balance'), ('name', '=', 'current_period_credit')]"/>
+      <field name="sequence">4</field>
+    </record>
+    <record model="acc.center.reconciliation.scheme.line1" id="ps_post.acc_center_reconciliation_scheme_line1_05">
+      <field name="account_id" ref="ps_mdm.mdm_account_account_data_2241_03"/>
+      <field name="acct_book_id" ref="ps_mdm.mdm_account_book_data_01"/>
+      <field name="biz_doc_setting">Set</field>
+      <field name="biz_line_ids" eval="[(6, 0, [ref('ps_post.acc_center_reconciliation_scheme_line1_line2_21'), ref('ps_post.acc_center_reconciliation_scheme_line1_line2_22'), ref('ps_post.acc_center_reconciliation_scheme_line1_line2_20'), ref('ps_post.acc_center_reconciliation_scheme_line1_line2_24'), ref('ps_post.acc_center_reconciliation_scheme_line1_line2_23')])]"/>
+      <field name="dimension_id" ref="ps_mdm.mdm_account_dimension_employee"/>
+      <field name="gl_decrease_field_id" search="[('model', '=', 'gl.account.balance'), ('name', '=', 'current_period_debit')]"/>
+      <field name="gl_increase_field_id" search="[('model', '=', 'gl.account.balance'), ('name', '=', 'current_period_credit')]"/>
+      <field name="sequence">5</field>
+    </record>
+    <record model="acc.center.reconciliation.scheme" id="ps_post.acc_center_reconciliation_scheme_01">
+      <field name="name">GL/AP reconciliation program</field>
+      <field name="state">save</field>
+      <field name="acct_book_id" ref="ps_mdm.mdm_account_book_data_01"/>
+      <field name="acct_org_id" ref="ps_admin.1001_orgs_my_company"/>
+      <field name="business_module">ps_ap</field>
+      <field name="line1_ids" eval="[(6, 0, [ref('ps_post.acc_center_reconciliation_scheme_line1_01'), ref('ps_post.acc_center_reconciliation_scheme_line1_02'), ref('ps_post.acc_center_reconciliation_scheme_line1_03'), ref('ps_post.acc_center_reconciliation_scheme_line1_04'), ref('ps_post.acc_center_reconciliation_scheme_line1_05')])]"/>
+    </record>
+  </data>
+</odoo>

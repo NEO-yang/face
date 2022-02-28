@@ -1,0 +1,345 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+  <data noupdate="1">
+    <record model="acc.center.reconciliation.scheme.line1.line2" id="ps_post.acc_center_reconciliation_scheme_line1_line2_25">
+      <field name="biz_data_type">increase</field>
+      <field search="[('model', '=', 'ar.receivable'), ('name', '=', 'currency_id')]" name="curr_field_id"/>
+      <field search="[('model', '=', 'ar.receivable'), ('name', '=', 'cust_id')]" name="d_corr_doc_field_id"/>
+      <field search="[('model', '=', 'mdm.customer')]" name="d_corr_filed_model_id"/>
+      <field search="[('model', '=', 'ar.receivable'), ('name', '=', 'biz_date')]" name="doc_date_field_id"/>
+      <field search="[('model', '=', 'ar.receivable'), ('name', '=', 'amount_tax_total')]" name="doc_field_id"/>
+      <field search="[('model', '=', 'ar.receivable')]" name="doc_filed_model_id"/>
+      <field search="[('model', '=', 'ar.receivable')]" name="model_id"/>
+      <field search="[('model', '=', 'ar.receivable'), ('name', '=', 'sett_org_id')]" name="sett_org_field_id"/>
+    </record>
+    <record model="acc.center.rs.condition.setting" id="ps_post.cm_receivable_bill__acc_center_rs_condition_setting__4">
+      <field name="name">Sales Collection(Not Advance)</field>
+      <field search="[('model', '=', 'cm.receivable.bill.line1.sale')]" name="model_id"/>
+      <field name="filter_domain">[["parent_id.real_doc_type","=","sale"], ["is_advance","=",False]]</field>
+    </record>
+    <record model="acc.center.reconciliation.scheme.line1.line2" id="ps_post.acc_center_reconciliation_scheme_line1_line2_26">
+      <field name="biz_data_type">decrease</field>
+      <field name="condition_id" ref="ps_post.cm_receivable_bill__acc_center_rs_condition_setting__4"/>
+      <field search="[('model', '=', 'cm.receivable.bill'), ('name', '=', 'currency_id')]" name="curr_field_id"/>
+      <field search="[('model', '=', 'cm.receivable.bill'), ('name', '=', 'contact_dept')]" name="d_corr_doc_field_id"/>
+      <field search="[('model', '=', 'mdm.customer')]" name="d_corr_filed_model_id"/>
+      <field search="[('model', '=', 'cm.receivable.bill'), ('name', '=', 'biz_date')]" name="doc_date_field_id"/>
+      <field search="[('model', '=', 'cm.receivable.bill.line1.sale'), ('name', '=', 'recv_amount')]" name="doc_field_id"/>
+      <field search="[('model', '=', 'cm.receivable.bill.line1.sale')]" name="doc_filed_model_id"/>
+      <field search="[('model', '=', 'cm.receivable.bill')]" name="model_id"/>
+      <field search="[('model', '=', 'cm.receivable.bill'), ('name', '=', 'sett_org_id')]" name="sett_org_field_id"/>
+    </record>
+    <record model="acc.center.rs.condition.setting" id="ps_post.cm_receivable_refund_bill__acc_center_rs_condition_setting__6">
+      <field name="name">Sales Business Refund (Not Advance)</field>
+      <field search="[('model', '=', 'cm.receivable.refund.bill.line1.sale')]" name="model_id"/>
+      <field name="filter_domain">[["parent_id.real_doc_type","=","sale_refund"], ["is_advance","=",False]]</field>
+    </record>
+    <record model="acc.center.reconciliation.scheme.line1.line2" id="ps_post.acc_center_reconciliation_scheme_line1_line2_27">
+      <field name="biz_data_type">decrease</field>
+      <field name="condition_id" ref="ps_post.cm_receivable_refund_bill__acc_center_rs_condition_setting__6"/>
+      <field search="[('model', '=', 'cm.receivable.refund.bill'), ('name', '=', 'currency_id')]" name="curr_field_id"/>
+      <field search="[('model', '=', 'cm.receivable.refund.bill'), ('name', '=', 'contact_dept')]" name="d_corr_doc_field_id"/>
+      <field search="[('model', '=', 'mdm.customer')]" name="d_corr_filed_model_id"/>
+      <field search="[('model', '=', 'cm.receivable.refund.bill'), ('name', '=', 'biz_date')]" name="doc_date_field_id"/>
+      <field search="[('model', '=', 'cm.receivable.refund.bill.line1.sale'), ('name', '=', 'recv_amount')]" name="doc_field_id"/>
+      <field search="[('model', '=', 'cm.receivable.refund.bill.line1.sale')]" name="doc_filed_model_id"/>
+      <field search="[('model', '=', 'cm.receivable.refund.bill')]" name="model_id"/>
+      <field search="[('model', '=', 'cm.receivable.refund.bill'), ('name', '=', 'sett_org_id')]" name="sett_org_field_id"/>
+    </record>
+    <record model="acc.center.rs.condition.setting" id="ps_post.arap_recon_record__acc_center_rs_condition_setting__5">
+      <field name="name">Receivable/Sales Collection(Advance)</field>
+      <field search="[('model', '=', 'arap.recon.record')]" name="model_id"/>
+      <field name="filter_domain">["|",["biz_model_id.model","=","ar.receivable.line1.plan"],["biz_model_id.model","=","cm.receivable.bill.line1.sale"],["is_advance","=",True],["recon_amount","&gt;",0]]</field>
+    </record>
+    <record model="acc.center.reconciliation.scheme.line1.line2" id="ps_post.acc_center_reconciliation_scheme_line1_line2_28">
+      <field name="biz_data_type">decrease</field>
+      <field name="condition_id" ref="ps_post.arap_recon_record__acc_center_rs_condition_setting__5"/>
+      <field search="[('model', '=', 'arap.recon.record'), ('name', '=', 'currency_id')]" name="curr_field_id"/>
+      <field search="[('model', '=', 'arap.recon.record'), ('name', '=', 'contact_dept')]" name="d_corr_doc_field_id"/>
+      <field search="[('model', '=', 'mdm.customer')]" name="d_corr_filed_model_id"/>
+      <field search="[('model', '=', 'arap.recon.record'), ('name', '=', 'biz_date')]" name="doc_date_field_id"/>
+      <field search="[('model', '=', 'arap.recon.record'), ('name', '=', 'recon_amount')]" name="doc_field_id"/>
+      <field search="[('model', '=', 'arap.recon.record')]" name="doc_filed_model_id"/>
+      <field search="[('model', '=', 'arap.recon.record')]" name="model_id"/>
+      <field search="[('model', '=', 'arap.recon.record'), ('name', '=', 'sett_org_id')]" name="sett_org_field_id"/>
+    </record>
+    <record model="acc.center.rs.condition.setting" id="ps_post.arap_recon_record__acc_center_rs_condition_setting__6">
+      <field name="name">Red Receivable/Sales Business Refund (Advance)</field>
+      <field search="[('model', '=', 'arap.recon.record')]" name="model_id"/>
+      <field name="filter_domain">["|",["biz_model_id.model","=","ar.receivable.line1.plan"], ["biz_model_id.model","=","cm.receivable.refund.bill.line1.sale"], ["is_advance","=",True], ["recon_amount","&lt;",0]]</field>
+    </record>
+    <record model="acc.center.reconciliation.scheme.line1.line2" id="ps_post.acc_center_reconciliation_scheme_line1_line2_29">
+      <field name="biz_data_type">decrease</field>
+      <field name="condition_id" ref="ps_post.arap_recon_record__acc_center_rs_condition_setting__6"/>
+      <field search="[('model', '=', 'arap.recon.record'), ('name', '=', 'currency_id')]" name="curr_field_id"/>
+      <field search="[('model', '=', 'arap.recon.record'), ('name', '=', 'contact_dept')]" name="d_corr_doc_field_id"/>
+      <field search="[('model', '=', 'mdm.customer')]" name="d_corr_filed_model_id"/>
+      <field search="[('model', '=', 'arap.recon.record'), ('name', '=', 'biz_date')]" name="doc_date_field_id"/>
+      <field search="[('model', '=', 'arap.recon.record'), ('name', '=', 'recon_amount')]" name="doc_field_id"/>
+      <field search="[('model', '=', 'arap.recon.record')]" name="doc_filed_model_id"/>
+      <field search="[('model', '=', 'arap.recon.record')]" name="model_id"/>
+      <field search="[('model', '=', 'arap.recon.record'), ('name', '=', 'sett_org_id')]" name="sett_org_field_id"/>
+    </record>
+    <record model="acc.center.rs.condition.setting" id="ps_post.cm_receivable_bill__acc_center_rs_condition_setting__5">
+      <field name="name">Sales Collection( Advance)</field>
+      <field search="[('model', '=', 'cm.receivable.bill.line1.sale')]" name="model_id"/>
+      <field name="filter_domain">[["parent_id.real_doc_type","=","sale"], ["is_advance","=",True]]</field>
+    </record>
+    <record model="acc.center.reconciliation.scheme.line1.line2" id="ps_post.acc_center_reconciliation_scheme_line1_line2_30">
+      <field name="biz_data_type">increase</field>
+      <field name="condition_id" ref="ps_post.cm_receivable_bill__acc_center_rs_condition_setting__5"/>
+      <field search="[('model', '=', 'cm.receivable.bill'), ('name', '=', 'currency_id')]" name="curr_field_id"/>
+      <field search="[('model', '=', 'cm.receivable.bill'), ('name', '=', 'contact_dept')]" name="d_corr_doc_field_id"/>
+      <field search="[('model', '=', 'mdm.customer')]" name="d_corr_filed_model_id"/>
+      <field search="[('model', '=', 'cm.receivable.bill'), ('name', '=', 'biz_date')]" name="doc_date_field_id"/>
+      <field search="[('model', '=', 'cm.receivable.bill.line1.sale'), ('name', '=', 'recv_amount')]" name="doc_field_id"/>
+      <field search="[('model', '=', 'cm.receivable.bill.line1.sale')]" name="doc_filed_model_id"/>
+      <field search="[('model', '=', 'cm.receivable.bill')]" name="model_id"/>
+      <field search="[('model', '=', 'cm.receivable.bill'), ('name', '=', 'sett_org_id')]" name="sett_org_field_id"/>
+    </record>
+    <record model="acc.center.rs.condition.setting" id="ps_post.cm_receivable_refund_bill__acc_center_rs_condition_setting__4">
+      <field name="name">Sales Business Refund (Advance)</field>
+      <field search="[('model', '=', 'cm.receivable.refund.bill.line1.sale')]" name="model_id"/>
+      <field name="filter_domain">[["parent_id.real_doc_type","=","sale_refund"], ["is_advance","=",True]]</field>
+    </record>
+    <record model="acc.center.reconciliation.scheme.line1.line2" id="ps_post.acc_center_reconciliation_scheme_line1_line2_31">
+      <field name="biz_data_type">increase</field>
+      <field name="condition_id" ref="ps_post.cm_receivable_refund_bill__acc_center_rs_condition_setting__4"/>
+      <field search="[('model', '=', 'cm.receivable.refund.bill'), ('name', '=', 'currency_id')]" name="curr_field_id"/>
+      <field search="[('model', '=', 'cm.receivable.refund.bill'), ('name', '=', 'contact_dept')]" name="d_corr_doc_field_id"/>
+      <field search="[('model', '=', 'mdm.customer')]" name="d_corr_filed_model_id"/>
+      <field search="[('model', '=', 'cm.receivable.refund.bill'), ('name', '=', 'biz_date')]" name="doc_date_field_id"/>
+      <field search="[('model', '=', 'cm.receivable.refund.bill.line1.sale'), ('name', '=', 'recv_amount')]" name="doc_field_id"/>
+      <field search="[('model', '=', 'cm.receivable.refund.bill.line1.sale')]" name="doc_filed_model_id"/>
+      <field search="[('model', '=', 'cm.receivable.refund.bill')]" name="model_id"/>
+      <field search="[('model', '=', 'cm.receivable.refund.bill'), ('name', '=', 'sett_org_id')]" name="sett_org_field_id"/>
+    </record>
+    <record model="acc.center.rs.condition.setting" id="ps_post.arap_recon_record__acc_center_rs_condition_setting__7">
+      <field name="name">Receivable/Sales Collection(Advance)</field>
+      <field search="[('model', '=', 'arap.recon.record')]" name="model_id"/>
+      <field name="filter_domain">["|",["biz_model_id.model","=","ar.receivable.line1.plan"],["biz_model_id.model","=","cm.receivable.bill.line1.sale"],["is_advance","=",True],["recon_amount","&gt;",0]]</field>
+    </record>
+    <record model="acc.center.reconciliation.scheme.line1.line2" id="ps_post.acc_center_reconciliation_scheme_line1_line2_32">
+      <field name="biz_data_type">decrease</field>
+      <field name="condition_id" ref="ps_post.arap_recon_record__acc_center_rs_condition_setting__7"/>
+      <field search="[('model', '=', 'arap.recon.record'), ('name', '=', 'currency_id')]" name="curr_field_id"/>
+      <field search="[('model', '=', 'arap.recon.record'), ('name', '=', 'contact_dept')]" name="d_corr_doc_field_id"/>
+      <field search="[('model', '=', 'mdm.customer')]" name="d_corr_filed_model_id"/>
+      <field search="[('model', '=', 'arap.recon.record'), ('name', '=', 'biz_date')]" name="doc_date_field_id"/>
+      <field search="[('model', '=', 'arap.recon.record'), ('name', '=', 'recon_amount')]" name="doc_field_id"/>
+      <field search="[('model', '=', 'arap.recon.record')]" name="doc_filed_model_id"/>
+      <field search="[('model', '=', 'arap.recon.record')]" name="model_id"/>
+      <field search="[('model', '=', 'arap.recon.record'), ('name', '=', 'sett_org_id')]" name="sett_org_field_id"/>
+    </record>
+    <record model="acc.center.rs.condition.setting" id="ps_post.arap_recon_record__acc_center_rs_condition_setting__8">
+      <field name="name">Red Receivable/Sales Business Refund (Advance)</field>
+      <field search="[('model', '=', 'arap.recon.record')]" name="model_id"/>
+      <field name="filter_domain">["|",["biz_model_id.model","=","ar.receivable.line1.plan"], ["biz_model_id.model","=","cm.receivable.refund.bill.line1.sale"], ["is_advance","=",True], ["recon_amount","&lt;",0]]</field>
+    </record>
+    <record model="acc.center.reconciliation.scheme.line1.line2" id="ps_post.acc_center_reconciliation_scheme_line1_line2_33">
+      <field name="biz_data_type">decrease</field>
+      <field name="condition_id" ref="ps_post.arap_recon_record__acc_center_rs_condition_setting__8"/>
+      <field search="[('model', '=', 'arap.recon.record'), ('name', '=', 'currency_id')]" name="curr_field_id"/>
+      <field search="[('model', '=', 'arap.recon.record'), ('name', '=', 'contact_dept')]" name="d_corr_doc_field_id"/>
+      <field search="[('model', '=', 'mdm.customer')]" name="d_corr_filed_model_id"/>
+      <field search="[('model', '=', 'arap.recon.record'), ('name', '=', 'biz_date')]" name="doc_date_field_id"/>
+      <field search="[('model', '=', 'arap.recon.record'), ('name', '=', 'recon_amount')]" name="doc_field_id"/>
+      <field search="[('model', '=', 'arap.recon.record')]" name="doc_filed_model_id"/>
+      <field search="[('model', '=', 'arap.recon.record')]" name="model_id"/>
+      <field search="[('model', '=', 'arap.recon.record'), ('name', '=', 'sett_org_id')]" name="sett_org_field_id"/>
+    </record>
+    <record model="acc.center.reconciliation.scheme.line1.line2" id="ps_post.acc_center_reconciliation_scheme_line1_line2_34">
+      <field name="biz_data_type">increase</field>
+      <field search="[('model', '=', 'ar.other.receivable'), ('name', '=', 'currency_id')]" name="curr_field_id"/>
+      <field search="[('model', '=', 'ar.other.receivable'), ('name', '=', 'contact_dept')]" name="d_corr_doc_field_id"/>
+      <field search="[('model', '=', 'mdm.customer')]" name="d_corr_filed_model_id"/>
+      <field search="[('model', '=', 'ar.other.receivable'), ('name', '=', 'biz_date')]" name="doc_date_field_id"/>
+      <field search="[('model', '=', 'ar.other.receivable'), ('name', '=', 'amount_total')]" name="doc_field_id"/>
+      <field search="[('model', '=', 'ar.other.receivable')]" name="doc_filed_model_id"/>
+      <field search="[('model', '=', 'ar.other.receivable')]" name="model_id"/>
+      <field search="[('model', '=', 'ar.other.receivable'), ('name', '=', 'sett_org_id')]" name="sett_org_field_id"/>
+    </record>
+    <record model="acc.center.rs.condition.setting" id="ps_post.cm_receivable_bill__acc_center_rs_condition_setting__6">
+      <field name="name">Other Receivable(Other Income)</field>
+      <field search="[('model', '=', 'cm.receivable.bill.line1.sale')]" name="model_id"/>
+      <field name="filter_domain">[["parent_id.real_doc_type","=","other"],["biz_type_number","=","SFKYT010"]]</field>
+    </record>
+    <record model="acc.center.reconciliation.scheme.line1.line2" id="ps_post.acc_center_reconciliation_scheme_line1_line2_35">
+      <field name="biz_data_type">decrease</field>
+      <field name="condition_id" ref="ps_post.cm_receivable_bill__acc_center_rs_condition_setting__6"/>
+      <field search="[('model', '=', 'cm.receivable.bill'), ('name', '=', 'currency_id')]" name="curr_field_id"/>
+      <field search="[('model', '=', 'cm.receivable.bill'), ('name', '=', 'contact_dept')]" name="d_corr_doc_field_id"/>
+      <field search="[('model', '=', 'mdm.customer')]" name="d_corr_filed_model_id"/>
+      <field search="[('model', '=', 'cm.receivable.bill'), ('name', '=', 'biz_date')]" name="doc_date_field_id"/>
+      <field search="[('model', '=', 'cm.receivable.bill.line1.sale'), ('name', '=', 'recv_amount')]" name="doc_field_id"/>
+      <field search="[('model', '=', 'cm.receivable.bill.line1.sale')]" name="doc_filed_model_id"/>
+      <field search="[('model', '=', 'cm.receivable.bill')]" name="model_id"/>
+      <field search="[('model', '=', 'cm.receivable.bill'), ('name', '=', 'sett_org_id')]" name="sett_org_field_id"/>
+    </record>
+    <record model="acc.center.rs.condition.setting" id="ps_post.cm_receivable_refund_bill__acc_center_rs_condition_setting__5">
+      <field name="name">Other Receivable Refund(Other Income)</field>
+      <field search="[('model', '=', 'cm.receivable.refund.bill.line1.sale')]" name="model_id"/>
+      <field name="filter_domain">[["parent_id.real_doc_type","=","other_refund"], ["biz_type_number","=","SFKYT010"]]</field>
+    </record>
+    <record model="acc.center.reconciliation.scheme.line1.line2" id="ps_post.acc_center_reconciliation_scheme_line1_line2_36">
+      <field name="biz_data_type">decrease</field>
+      <field name="condition_id" ref="ps_post.cm_receivable_refund_bill__acc_center_rs_condition_setting__5"/>
+      <field search="[('model', '=', 'cm.receivable.refund.bill'), ('name', '=', 'currency_id')]" name="curr_field_id"/>
+      <field search="[('model', '=', 'cm.receivable.refund.bill'), ('name', '=', 'contact_dept')]" name="d_corr_doc_field_id"/>
+      <field search="[('model', '=', 'mdm.customer')]" name="d_corr_filed_model_id"/>
+      <field search="[('model', '=', 'cm.receivable.refund.bill'), ('name', '=', 'biz_date')]" name="doc_date_field_id"/>
+      <field search="[('model', '=', 'cm.receivable.refund.bill.line1.sale'), ('name', '=', 'recv_amount')]" name="doc_field_id"/>
+      <field search="[('model', '=', 'cm.receivable.refund.bill.line1.sale')]" name="doc_filed_model_id"/>
+      <field search="[('model', '=', 'cm.receivable.refund.bill')]" name="model_id"/>
+      <field search="[('model', '=', 'cm.receivable.refund.bill'), ('name', '=', 'sett_org_id')]" name="sett_org_field_id"/>
+    </record>
+    <record model="acc.center.reconciliation.scheme.line1.line2" id="ps_post.acc_center_reconciliation_scheme_line1_line2_37">
+      <field name="biz_data_type">increase</field>
+      <field search="[('model', '=', 'ar.other.receivable'), ('name', '=', 'currency_id')]" name="curr_field_id"/>
+      <field search="[('model', '=', 'ar.other.receivable'), ('name', '=', 'contact_dept')]" name="d_corr_doc_field_id"/>
+      <field search="[('model', '=', 'mdm.supplier')]" name="d_corr_filed_model_id"/>
+      <field search="[('model', '=', 'ar.other.receivable'), ('name', '=', 'biz_date')]" name="doc_date_field_id"/>
+      <field search="[('model', '=', 'ar.other.receivable'), ('name', '=', 'amount_total')]" name="doc_field_id"/>
+      <field search="[('model', '=', 'ar.other.receivable')]" name="doc_filed_model_id"/>
+      <field search="[('model', '=', 'ar.other.receivable')]" name="model_id"/>
+      <field search="[('model', '=', 'ar.other.receivable'), ('name', '=', 'sett_org_id')]" name="sett_org_field_id"/>
+    </record>
+    <record model="acc.center.rs.condition.setting" id="ps_post.cm_receivable_bill__acc_center_rs_condition_setting__7">
+      <field name="name">Other Receivable(Other Income)</field>
+      <field search="[('model', '=', 'cm.receivable.bill.line1.sale')]" name="model_id"/>
+      <field name="filter_domain">[["parent_id.real_doc_type","=","other"],["biz_type_number","=","SFKYT010"]]</field>
+    </record>
+    <record model="acc.center.reconciliation.scheme.line1.line2" id="ps_post.acc_center_reconciliation_scheme_line1_line2_38">
+      <field name="biz_data_type">decrease</field>
+      <field name="condition_id" ref="ps_post.cm_receivable_bill__acc_center_rs_condition_setting__7"/>
+      <field search="[('model', '=', 'cm.receivable.bill'), ('name', '=', 'currency_id')]" name="curr_field_id"/>
+      <field search="[('model', '=', 'cm.receivable.bill'), ('name', '=', 'contact_dept')]" name="d_corr_doc_field_id"/>
+      <field search="[('model', '=', 'mdm.supplier')]" name="d_corr_filed_model_id"/>
+      <field search="[('model', '=', 'cm.receivable.bill'), ('name', '=', 'biz_date')]" name="doc_date_field_id"/>
+      <field search="[('model', '=', 'cm.receivable.bill.line1.sale'), ('name', '=', 'recv_amount')]" name="doc_field_id"/>
+      <field search="[('model', '=', 'cm.receivable.bill.line1.sale')]" name="doc_filed_model_id"/>
+      <field search="[('model', '=', 'cm.receivable.bill')]" name="model_id"/>
+      <field search="[('model', '=', 'cm.receivable.bill'), ('name', '=', 'sett_org_id')]" name="sett_org_field_id"/>
+    </record>
+    <record model="acc.center.rs.condition.setting" id="ps_post.cm_receivable_refund_bill__acc_center_rs_condition_setting__7">
+      <field name="name">Other Receivable Refund(Other Income)</field>
+      <field search="[('model', '=', 'cm.receivable.refund.bill.line1.sale')]" name="model_id"/>
+      <field name="filter_domain">[["parent_id.real_doc_type","=","other_refund"], ["biz_type_number","=","SFKYT010"]]</field>
+    </record>
+    <record model="acc.center.reconciliation.scheme.line1.line2" id="ps_post.acc_center_reconciliation_scheme_line1_line2_39">
+      <field name="biz_data_type">decrease</field>
+      <field name="condition_id" ref="ps_post.cm_receivable_refund_bill__acc_center_rs_condition_setting__7"/>
+      <field search="[('model', '=', 'cm.receivable.refund.bill'), ('name', '=', 'currency_id')]" name="curr_field_id"/>
+      <field search="[('model', '=', 'cm.receivable.refund.bill'), ('name', '=', 'contact_dept')]" name="d_corr_doc_field_id"/>
+      <field search="[('model', '=', 'mdm.supplier')]" name="d_corr_filed_model_id"/>
+      <field search="[('model', '=', 'cm.receivable.refund.bill'), ('name', '=', 'biz_date')]" name="doc_date_field_id"/>
+      <field search="[('model', '=', 'cm.receivable.refund.bill.line1.sale'), ('name', '=', 'recv_amount')]" name="doc_field_id"/>
+      <field search="[('model', '=', 'cm.receivable.refund.bill.line1.sale')]" name="doc_filed_model_id"/>
+      <field search="[('model', '=', 'cm.receivable.refund.bill')]" name="model_id"/>
+      <field search="[('model', '=', 'cm.receivable.refund.bill'), ('name', '=', 'sett_org_id')]" name="sett_org_field_id"/>
+    </record>
+    <record model="acc.center.rs.condition.setting" id="ps_post.cm_receivable_refund_bill__acc_center_rs_condition_setting__8">
+      <field name="name">Other Receivable Refund(Other Income)</field>
+      <field search="[('model', '=', 'cm.receivable.refund.bill.line1.sale')]" name="model_id"/>
+      <field name="filter_domain">[["parent_id.real_doc_type","=","other_refund"], ["biz_type_number","=","SFKYT010"]]</field>
+    </record>
+    <record model="acc.center.reconciliation.scheme.line1.line2" id="ps_post.acc_center_reconciliation_scheme_line1_line2_42">
+      <field name="biz_data_type">decrease</field>
+      <field name="condition_id" ref="ps_post.cm_receivable_refund_bill__acc_center_rs_condition_setting__8"/>
+      <field search="[('model', '=', 'cm.receivable.refund.bill'), ('name', '=', 'currency_id')]" name="curr_field_id"/>
+      <field search="[('model', '=', 'cm.receivable.refund.bill'), ('name', '=', 'contact_dept')]" name="d_corr_doc_field_id"/>
+      <field search="[('model', '=', 'mdm.employee')]" name="d_corr_filed_model_id"/>
+      <field search="[('model', '=', 'cm.receivable.refund.bill'), ('name', '=', 'biz_date')]" name="doc_date_field_id"/>
+      <field search="[('model', '=', 'cm.receivable.refund.bill.line1.sale'), ('name', '=', 'recv_amount')]" name="doc_field_id"/>
+      <field search="[('model', '=', 'cm.receivable.refund.bill.line1.sale')]" name="doc_filed_model_id"/>
+      <field search="[('model', '=', 'cm.receivable.refund.bill')]" name="model_id"/>
+      <field search="[('model', '=', 'cm.receivable.refund.bill'), ('name', '=', 'sett_org_id')]" name="sett_org_field_id"/>
+    </record>
+    <record model="acc.center.reconciliation.scheme.line1.line2" id="ps_post.acc_center_reconciliation_scheme_line1_line2_40">
+      <field name="biz_data_type">increase</field>
+      <field search="[('model', '=', 'ar.other.receivable'), ('name', '=', 'currency_id')]" name="curr_field_id"/>
+      <field search="[('model', '=', 'ar.other.receivable'), ('name', '=', 'contact_dept')]" name="d_corr_doc_field_id"/>
+      <field search="[('model', '=', 'mdm.employee')]" name="d_corr_filed_model_id"/>
+      <field search="[('model', '=', 'ar.other.receivable'), ('name', '=', 'biz_date')]" name="doc_date_field_id"/>
+      <field search="[('model', '=', 'ar.other.receivable'), ('name', '=', 'amount_total')]" name="doc_field_id"/>
+      <field search="[('model', '=', 'ar.other.receivable')]" name="doc_filed_model_id"/>
+      <field search="[('model', '=', 'ar.other.receivable')]" name="model_id"/>
+      <field search="[('model', '=', 'ar.other.receivable'), ('name', '=', 'sett_org_id')]" name="sett_org_field_id"/>
+    </record>
+    <record model="acc.center.rs.condition.setting" id="ps_post.cm_receivable_bill__acc_center_rs_condition_setting__8">
+      <field name="name">Other Receivable(Other Income)</field>
+      <field search="[('model', '=', 'cm.receivable.bill.line1.sale')]" name="model_id"/>
+      <field name="filter_domain">[["parent_id.real_doc_type","=","other"],["biz_type_number","=","SFKYT010"]]</field>
+    </record>
+    <record model="acc.center.reconciliation.scheme.line1.line2" id="ps_post.acc_center_reconciliation_scheme_line1_line2_41">
+      <field name="biz_data_type">decrease</field>
+      <field name="condition_id" ref="ps_post.cm_receivable_bill__acc_center_rs_condition_setting__8"/>
+      <field search="[('model', '=', 'cm.receivable.bill'), ('name', '=', 'currency_id')]" name="curr_field_id"/>
+      <field search="[('model', '=', 'cm.receivable.bill'), ('name', '=', 'contact_dept')]" name="d_corr_doc_field_id"/>
+      <field search="[('model', '=', 'mdm.employee')]" name="d_corr_filed_model_id"/>
+      <field search="[('model', '=', 'cm.receivable.bill'), ('name', '=', 'biz_date')]" name="doc_date_field_id"/>
+      <field search="[('model', '=', 'cm.receivable.bill.line1.sale'), ('name', '=', 'recv_amount')]" name="doc_field_id"/>
+      <field search="[('model', '=', 'cm.receivable.bill.line1.sale')]" name="doc_filed_model_id"/>
+      <field search="[('model', '=', 'cm.receivable.bill')]" name="model_id"/>
+      <field search="[('model', '=', 'cm.receivable.bill'), ('name', '=', 'sett_org_id')]" name="sett_org_field_id"/>
+    </record>
+    <record model="acc.center.reconciliation.scheme.line1" id="ps_post.acc_center_reconciliation_scheme_line1_06">
+      <field name="account_id" ref="ps_mdm.mdm_account_account_data_1122"/>
+      <field name="acct_book_id" ref="ps_mdm.mdm_account_book_data_01"/>
+      <field name="biz_doc_setting">Set</field>
+      <field eval="[(6, 0, [ref('ps_post.acc_center_reconciliation_scheme_line1_line2_25'), ref('ps_post.acc_center_reconciliation_scheme_line1_line2_26'), ref('ps_post.acc_center_reconciliation_scheme_line1_line2_27'), ref('ps_post.acc_center_reconciliation_scheme_line1_line2_28'), ref('ps_post.acc_center_reconciliation_scheme_line1_line2_29')])]" name="biz_line_ids"/>
+      <field name="dimension_id" ref="ps_mdm.mdm_account_dimension_customer"/>
+      <field search="[('model', '=', 'gl.account.balance'), ('name', '=', 'current_period_credit')]" name="gl_decrease_field_id"/>
+      <field search="[('model', '=', 'gl.account.balance'), ('name', '=', 'current_period_debit')]" name="gl_increase_field_id"/>
+      <field name="sequence">1</field>
+    </record>
+    <record model="acc.center.reconciliation.scheme.line1" id="ps_post.acc_center_reconciliation_scheme_line1_07">
+      <field name="account_id" ref="ps_mdm.mdm_account_account_data_2203"/>
+      <field name="acct_book_id" ref="ps_mdm.mdm_account_book_data_01"/>
+      <field name="biz_doc_setting">Set</field>
+      <field eval="[(6, 0, [ref('ps_post.acc_center_reconciliation_scheme_line1_line2_30'), ref('ps_post.acc_center_reconciliation_scheme_line1_line2_31'), ref('ps_post.acc_center_reconciliation_scheme_line1_line2_32'), ref('ps_post.acc_center_reconciliation_scheme_line1_line2_33')])]" name="biz_line_ids"/>
+      <field name="dimension_id" ref="ps_mdm.mdm_account_dimension_customer"/>
+      <field search="[('model', '=', 'gl.account.balance'), ('name', '=', 'current_period_debit')]" name="gl_decrease_field_id"/>
+      <field search="[('model', '=', 'gl.account.balance'), ('name', '=', 'current_period_credit')]" name="gl_increase_field_id"/>
+      <field name="sequence">2</field>
+    </record>
+    <record model="acc.center.reconciliation.scheme.line1" id="ps_post.acc_center_reconciliation_scheme_line1_08">
+      <field name="account_id" ref="ps_mdm.mdm_account_account_data_1221_01"/>
+      <field name="acct_book_id" ref="ps_mdm.mdm_account_book_data_01"/>
+      <field name="biz_doc_setting">Set</field>
+      <field eval="[(6, 0, [ref('ps_post.acc_center_reconciliation_scheme_line1_line2_34'), ref('ps_post.acc_center_reconciliation_scheme_line1_line2_35'), ref('ps_post.acc_center_reconciliation_scheme_line1_line2_36')])]" name="biz_line_ids"/>
+      <field name="dimension_id" ref="ps_mdm.mdm_account_dimension_customer"/>
+      <field search="[('model', '=', 'gl.account.balance'), ('name', '=', 'current_period_credit')]" name="gl_decrease_field_id"/>
+      <field search="[('model', '=', 'gl.account.balance'), ('name', '=', 'current_period_debit')]" name="gl_increase_field_id"/>
+      <field name="sequence">3</field>
+    </record>
+    <record model="acc.center.reconciliation.scheme.line1" id="ps_post.acc_center_reconciliation_scheme_line1_09">
+      <field name="account_id" ref="ps_mdm.mdm_account_account_data_1221_02"/>
+      <field name="acct_book_id" ref="ps_mdm.mdm_account_book_data_01"/>
+      <field name="biz_doc_setting">Set</field>
+      <field eval="[(6, 0, [ref('ps_post.acc_center_reconciliation_scheme_line1_line2_37'), ref('ps_post.acc_center_reconciliation_scheme_line1_line2_38'), ref('ps_post.acc_center_reconciliation_scheme_line1_line2_39')])]" name="biz_line_ids"/>
+      <field name="dimension_id" ref="ps_mdm.mdm_account_dimension_supplier"/>
+      <field search="[('model', '=', 'gl.account.balance'), ('name', '=', 'current_period_credit')]" name="gl_decrease_field_id"/>
+      <field search="[('model', '=', 'gl.account.balance'), ('name', '=', 'current_period_debit')]" name="gl_increase_field_id"/>
+      <field name="sequence">4</field>
+    </record>
+    <record model="acc.center.reconciliation.scheme.line1" id="ps_post.acc_center_reconciliation_scheme_line1_10">
+      <field name="account_id" ref="ps_mdm.mdm_account_account_data_1221_03"/>
+      <field name="acct_book_id" ref="ps_mdm.mdm_account_book_data_01"/>
+      <field name="biz_doc_setting">Set</field>
+      <field eval="[(6, 0, [ref('ps_post.acc_center_reconciliation_scheme_line1_line2_42'), ref('ps_post.acc_center_reconciliation_scheme_line1_line2_40'), ref('ps_post.acc_center_reconciliation_scheme_line1_line2_41')])]" name="biz_line_ids"/>
+      <field name="dimension_id" ref="ps_mdm.mdm_account_dimension_employee"/>
+      <field search="[('model', '=', 'gl.account.balance'), ('name', '=', 'current_period_credit')]" name="gl_decrease_field_id"/>
+      <field search="[('model', '=', 'gl.account.balance'), ('name', '=', 'current_period_debit')]" name="gl_increase_field_id"/>
+      <field name="sequence">5</field>
+    </record>
+    <record model="acc.center.reconciliation.scheme" id="ps_post.acc_center_reconciliation_scheme_02">
+      <field name="name">GL/AR reconciliation program</field>
+      <field name="state">save</field>
+      <field name="acct_book_id" ref="ps_mdm.mdm_account_book_data_01"/>
+      <field name="acct_org_id" ref="ps_admin.1001_orgs_my_company"/>
+      <field name="business_module">ps_ar</field>
+      <field eval="[(6, 0, [ref('ps_post.acc_center_reconciliation_scheme_line1_06'), ref('ps_post.acc_center_reconciliation_scheme_line1_07'), ref('ps_post.acc_center_reconciliation_scheme_line1_08'), ref('ps_post.acc_center_reconciliation_scheme_line1_09'), ref('ps_post.acc_center_reconciliation_scheme_line1_10')])]" name="line1_ids"/>
+    </record>
+  </data>
+</odoo>

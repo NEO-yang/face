@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+==================================================
+@创建人 ：王娟
+@当前维护人 ：王娟
+@Desc ： 凭证工厂卡片
+==================================================
+-->
+  <template>
+    <t t-name="FactoryCard">
+      <div class="factory-card-container row row-cols-2">
+        <t t-log="widget.cardList" />
+        <t t-foreach="widget.cardList" t-as="data">
+          <t t-call="FactoryCardItem">
+            <t t-set="cardData" t-value="data" />
+          </t>
+        </t>
+        <t t-call="FactoryCardAdd" />
+      </div>
+    </t>
+
+    <!-- 卡片 -->
+    <t t-name="FactoryCardItem">
+      <div class="card-item col-6">
+        <div class="card-body">
+          <div class="card-title">
+            <div>
+              <span class="card-title-img">
+                <img t-att-src="cardData.icon" alt="icon" style="width: 32px"/>
+              </span>
+              <span class="card-title-name" t-esc="cardData.module_name" />
+            </div>
+            <div class="card-title-remove tooltip-test" data-toggle="tooltip" title="Please operate with caution" t-att-data-moduleid="cardData.module_id" t-att-data-acctingbookid="cardData.accting_book_id" >
+              <i class="fa fa-times" ></i>
+            </div>
+          </div>
+          <div class="card-info">
+            <!-- <div class="card-info-title">
+              <span t-esc="cardData.modelName" />
+              <span>说明</span>
+            </div> -->
+            <div class="card-info-progress">
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped" role="progressbar" t-att-style="'width: ' + cardData.radio + '%;'" t-att-aria-valuenow="cardData.radio" aria-valuemin="0" aria-valuemax="100" />
+              </div>
+              <span t-esc="cardData.radio + '%'"/>
+            </div>
+            </div>
+            <ul class="card-solution">
+              <li class="solution-item" t-foreach="cardData.template_data_list" t-as="data">
+                <t t-call="FactorySolutionItem">
+                  <t t-set="solutionData" t-value="data" />
+                  <t t-set="acctingbookid" t-value="cardData.accting_book_id" />
+                </t>
+              </li>
+            </ul>
+            <div class="solution-item-add" t-att-data-moduleid="cardData.module_id" t-att-data-acctingbookid="cardData.accting_book_id">
+              <img src="/ps_acc_center/static/src/img/addSolution.png" alt="add"/>
+              <!-- 添加新方案 -->
+              <span>Add New Scheme</span>
+            </div>
+          </div>
+        </div>
+    </t>
+
+    <!-- 解决方案 -->
+    <t t-name="FactorySolutionItem">
+       <div class="solution-item-name" >
+        <i class="fa fa-trash-o solution-item-move tooltip-test" data-toggle="tooltip" title="Please operate with caution" t-att-data-acctingbookid="acctingbookid"  t-att-data-moduleid="solutionData.module_id" t-att-data-templateid="solutionData.template_id"></i>
+        <span t-esc="solutionData.template_name" ></span>
+       </div>
+       <div class="solution-item-tag">
+          <!-- 已生成凭证 -->
+          <div class="solution-item-tag-item solution-item-publish">Generated vouchers</div>
+          <!-- 未生成凭证 -->
+          <div class="solution-item-tag-item solution-item-unpublish">Voucher not generated</div>
+       </div>
+       <div class="solution-item-num">
+          <div class="solution-item-num-item solution-item-publish-num">
+            <t t-esc="solutionData.vou_num"/>sheets
+          </div>
+          <div class="solution-item-num-item solution-item-unpublish-num">
+            <t t-esc="solutionData.doc_num"/>sheets
+          </div>
+       </div>
+       <div class="solution-item-btn">
+          <!-- 查看凭证 module_id  template_id -->
+          <div class="solution-item-btn-item">
+            <button type="button" class="btn btn-outline-primary watch-voucher-btn" t-att-data-vou_num="solutionData.vou_num" t-att-data-acctingbookid="acctingbookid"  t-att-data-moduleid="solutionData.module_id" t-att-data-templateid="solutionData.template_id">watchVoucher</button>
+          </div>
+          <!-- 生成凭证 -->
+          <div class="solution-item-btn-item">
+            <button type="button" class="btn btn-outline-info gen-voucher-btn" t-att-data-doc_num="solutionData.doc_num"  t-att-data-line_id="solutionData.line_id"  t-att-data-acctingbookid="acctingbookid"  t-att-data-moduleid="solutionData.module_id" t-att-data-templateid="solutionData.template_id">generateVoucher</button>
+          </div>
+       </div>
+    </t>
+
+    <!-- 卡片新增 -->
+    <t t-name="FactoryCardAdd">
+      <div class="card-item col-6">
+        <div class="card-body card-add-body">
+          <img src="/ps_acc_center/static/src/img/addCard.png" alt="add"/>
+          <!-- 新增卡片 -->
+          <span class="card-add-text">Add Card</span>
+        </div>
+      </div>
+    </t>
+
+    <t t-name="FactoryDialog">
+      <div class="add-solution-dialog"></div>
+    </t>
+  </template>

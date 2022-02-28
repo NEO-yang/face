@@ -1,0 +1,99 @@
+<odoo>
+    <data noupdate="1">
+        <record id="cm_transfer_settle_voucher_template" model="acc.center.voucher.generation.line1">
+            <field name="template_id" ref="ps_cm.cm_transfer_settle__acc_center_template__11"></field>
+            <field name="source_doc_id" search="[('model', '=', 'cm.transfer.settle')]"/>
+            <field name="source_doc_model">cm.transfer.settle</field>
+        </record>
+        <record id="cm_cash_recycling_voucher_template" model="acc.center.voucher.generation.line1">
+            <field name="template_id" ref="ps_cm.cm_cash_recycling__acc_center_template__12"></field>
+            <field name="source_doc_id" search="[('model', '=', 'cm.cash.recycling')]"/>
+            <field name="source_doc_model">cm.cash.recycling</field>
+        </record>
+        <record id="cm_receivable_refund_bill_voucher_template" model="acc.center.voucher.generation.line1">
+            <field name="template_id" ref="ps_cm.cm_receivable_refund_bill__acc_center_template__5"></field>
+            <field name="source_doc_id" search="[('model', '=', 'cm.receivable.refund.bill')]"/>
+            <field name="source_doc_model">cm.receivable.refund.bill</field>
+        </record>
+        <record id="cm_receivable_bill_voucher_template" model="acc.center.voucher.generation.line1">
+            <field name="template_id" ref="ps_cm.cm_receivable_bill__acc_center_template__1"></field>
+            <field name="source_doc_id" search="[('model', '=', 'cm.receivable.bill')]"/>
+            <field name="source_doc_model">cm.receivable.bill</field>
+        </record>
+        <record id="cm_bill_receivable_settlement_voucher_template" model="acc.center.voucher.generation.line1">
+            <field name="template_id" ref="ps_cm.cm_bill_receivable_settlement__acc_center_template__4"></field>
+            <field name="source_doc_id" search="[('model', '=', 'cm.bill.receivable.settlement')]"/>
+            <field name="source_doc_model">cm.bill.receivable.settlement</field>
+        </record>
+        <record id="cm_bill_payable_settlement_voucher_template" model="acc.center.voucher.generation.line1">
+            <field name="template_id" ref="ps_cm.cm_bill_payable_settlement__acc_center_template__4"></field>
+            <field name="source_doc_id" search="[('model', '=', 'cm.bill.payable.settlement')]"/>
+            <field name="source_doc_model">cm.bill.payable.settlement</field>
+        </record>
+        <record id="cm_payable_bill_voucher_template" model="acc.center.voucher.generation.line1">
+            <field name="template_id" ref="ps_cm.cm_payable_bill__acc_center_template__2"></field>
+            <field name="source_doc_id" search="[('model', '=', 'cm.payable.bill')]"/>
+            <field name="source_doc_model">cm.payable.bill</field>
+        </record>
+        <record id="cm_payable_refund_bill_voucher_template" model="acc.center.voucher.generation.line1">
+            <field name="template_id" ref="ps_cm.cm_payable_refund_bill__acc_center_template__3"></field>
+            <field name="source_doc_id" search="[('model', '=', 'cm.payable.refund.bill')]"/>
+            <field name="source_doc_model">cm.payable.refund.bill</field>
+        </record>
+        <record id="acc_center_fac_vouvher_ps_cm" model="acc.center.voucher.generation">
+            <field name="acct_book_id" ref="ps_mdm.mdm_account_book_data_01"></field>
+            <field name="module_id" search="[('name', '=', 'ps_cm')]"/>
+            <field name="delete_state">normal</field>
+            <field name="line_ids" eval="[(6, 0, [
+                    ref('cm_transfer_settle_voucher_template'),
+                    ref('cm_cash_recycling_voucher_template'),
+                    ref('cm_receivable_refund_bill_voucher_template'),
+                    ref('cm_receivable_bill_voucher_template'),
+                    ref('cm_bill_receivable_settlement_voucher_template'),
+                    ref('cm_bill_payable_settlement_voucher_template'),
+                    ref('cm_payable_bill_voucher_template'),
+                    ref('cm_payable_refund_bill_voucher_template'),
+                    ])]"/>
+        </record>
+
+        <record id="ar_receivable_voucher_template" model="acc.center.voucher.generation.line1">
+            <field name="template_id" ref="ps_ar.ar_receivable__acc_center_template__11"></field>
+            <field name="source_doc_id" search="[('model', '=', 'ar.receivable')]"/>
+            <field name="source_doc_model">ar.receivable</field>
+        </record>
+        <record id="ar_other_receivable_voucher_template" model="acc.center.voucher.generation.line1">
+            <field name="template_id" ref="ps_ar.ar_other_receivable__acc_center_template__12"></field>
+            <field name="source_doc_id" search="[('model', '=', 'ar.other.receivable')]"/>
+            <field name="source_doc_model">ar.other.receivable</field>
+        </record>
+        <record id="acc_center_fac_vouvher_ps_ar" model="acc.center.voucher.generation">
+            <field name="acct_book_id" ref="ps_mdm.mdm_account_book_data_01"></field>
+            <field name="module_id" search="[('name', '=', 'ps_ar')]"/>
+            <field name="delete_state">normal</field>
+            <field name="line_ids" eval="[(6, 0, [
+                    ref('ar_receivable_voucher_template'),
+                    ref('ar_other_receivable_voucher_template'),
+                    ])]"/>
+        </record>
+
+        <record id="ap_payable_voucher_template" model="acc.center.voucher.generation.line1">
+            <field name="template_id" ref="ps_ap.ap_payable__acc_center_template__10"></field>
+            <field name="source_doc_id" search="[('model', '=', 'ap.payable')]"/>
+            <field name="source_doc_model">ap.payable</field>
+        </record>
+        <record id="ap_other_payable_voucher_template" model="acc.center.voucher.generation.line1">
+            <field name="template_id" ref="ps_ap.ap_other_payable__acc_center_template__13"></field>
+            <field name="source_doc_id" search="[('model', '=', 'ap.other.payable')]"/>
+            <field name="source_doc_model">ap.other.payable</field>
+        </record>
+        <record id="acc_center_fac_vouvher_ps_ap" model="acc.center.voucher.generation">
+            <field name="acct_book_id" ref="ps_mdm.mdm_account_book_data_01"></field>
+            <field name="module_id" search="[('name', '=', 'ps_ap')]"/>
+            <field name="delete_state">normal</field>
+            <field name="line_ids" eval="[(6, 0, [
+                    ref('ap_payable_voucher_template'),
+                    ref('ap_other_payable_voucher_template'),
+                    ])]"/>
+        </record>
+    </data>
+</odoo>

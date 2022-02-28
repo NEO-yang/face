@@ -1,0 +1,404 @@
+﻿"Sheet13": {
+    "name": "Sheet13",
+    "activeRow": 4,
+    "activeCol": 7,
+    "theme": "Office",
+    "data": {
+        "dataTable": {
+            "0": {
+                "0": {
+                    "value": "日期："
+                }
+            },
+            "1": {
+                "0": {
+                    "value": "费用承担组织",
+                    "style": {
+                        "hAlign": 1,
+                        "vAlign": 1
+                    }
+                },
+                "1": {
+                    "value": "费用承担部门",
+                    "style": {
+                        "hAlign": 1,
+                        "vAlign": 1
+                    }
+                },
+                "2": {
+                    "value": "往来单位",
+                    "style": {
+                        "hAlign": 1,
+                        "vAlign": 1
+                    }
+                },
+                "3": {
+                    "value": "费用项目",
+                    "style": {
+                        "hAlign": 1,
+                        "vAlign": 1
+                    }
+                },
+                "4": {
+                    "value": "单据名称",
+                    "style": {
+                        "hAlign": 1,
+                        "vAlign": 1
+                    }
+                },
+                "5": {
+                    "value": "单据类型",
+                    "style": {
+                        "hAlign": 1,
+                        "vAlign": 1
+                    }
+                },
+                "6": {
+                    "value": "单据编号",
+                    "style": {
+                        "hAlign": 1,
+                        "vAlign": 1
+                    }
+                },
+                "7": {
+                    "value": "申请日期",
+                    "style": {
+                        "hAlign": 1,
+                        "vAlign": 1
+                    }
+                },
+                "8": {
+                    "value": "报销事由",
+                    "style": {
+                        "hAlign": 1,
+                        "vAlign": 1
+                    }
+                },
+                "9": {
+                    "value": "原币",
+                    "style": {
+                        "hAlign": 1
+                    }
+                },
+                "10": {
+                    "style": {
+                        "hAlign": 1
+                    }
+                },
+                "11": {
+                    "style": {
+                        "hAlign": 1
+                    }
+                },
+                "12": {
+                    "style": {
+                        "hAlign": 1
+                    }
+                },
+                "13": {
+                    "value": "本位币",
+                    "style": {
+                        "hAlign": 1,
+                        "vAlign": 1
+                    }
+                },
+                "14": {
+                    "style": {
+                        "hAlign": 1,
+                        "vAlign": 1
+                    }
+                },
+                "15": {
+                    "style": {
+                        "hAlign": 1,
+                        "vAlign": 1
+                    }
+                },
+                "16": {
+                    "style": {
+                        "hAlign": 1,
+                        "vAlign": 1
+                    }
+                },
+                "17": {
+                    "value": "申请部门",
+                    "style": {
+                        "hAlign": 1,
+                        "vAlign": 1
+                    }
+                },
+                "18": {
+                    "value": "申请人",
+                    "style": {
+                        "hAlign": 1,
+                        "vAlign": 1
+                    }
+                },
+                "19": {
+                    "value": "单据状态",
+                    "style": {
+                        "hAlign": 1,
+                        "vAlign": 1
+                    }
+                }
+            },
+            "2": {
+                "0": {
+                    "style": {
+                        "hAlign": 1,
+                        "vAlign": 1
+                    }
+                },
+                "1": {
+                    "style": {
+                        "hAlign": 1,
+                        "vAlign": 1
+                    }
+                },
+                "2": {
+                    "style": {
+                        "hAlign": 1,
+                        "vAlign": 1
+                    }
+                },
+                "3": {
+                    "style": {
+                        "hAlign": 1,
+                        "vAlign": 1
+                    }
+                },
+                "4": {
+                    "style": {
+                        "hAlign": 1,
+                        "vAlign": 1
+                    }
+                },
+                "5": {
+                    "style": {
+                        "hAlign": 1,
+                        "vAlign": 1
+                    }
+                },
+                "6": {
+                    "style": {
+                        "hAlign": 1,
+                        "vAlign": 1
+                    }
+                },
+                "7": {
+                    "style": {
+                        "hAlign": 1,
+                        "vAlign": 1
+                    }
+                },
+                "8": {
+                    "style": {
+                        "hAlign": 1,
+                        "vAlign": 1
+                    }
+                },
+                "9": {
+                    "value": "币别",
+                    "style": {
+                        "hAlign": 1
+                    }
+                },
+                "10": {
+                    "value": "费用金额",
+                    "style": {
+                        "hAlign": 1
+                    }
+                },
+                "11": {
+                    "value": "税额",
+                    "style": {
+                        "hAlign": 1
+                    }
+                },
+                "12": {
+                    "value": "报销金额",
+                    "style": {
+                        "hAlign": 1
+                    }
+                },
+                "13": {
+                    "value": "币别",
+                    "style": {
+                        "hAlign": 1,
+                        "vAlign": 0,
+                        "themeFont": "Body",
+                        "imeMode": 1
+                    }
+                },
+                "14": {
+                    "value": "费用金额",
+                    "style": {
+                        "hAlign": 1,
+                        "vAlign": 0,
+                        "themeFont": "Body",
+                        "imeMode": 1
+                    }
+                },
+                "15": {
+                    "value": "税额",
+                    "style": {
+                        "hAlign": 1,
+                        "vAlign": 0,
+                        "themeFont": "Body",
+                        "imeMode": 1
+                    }
+                },
+                "16": {
+                    "value": "报销金额",
+                    "style": {
+                        "hAlign": 1,
+                        "vAlign": 0,
+                        "themeFont": "Body",
+                        "imeMode": 1
+                    }
+                },
+                "17": {
+                    "style": {
+                        "hAlign": 1,
+                        "vAlign": 1
+                    }
+                },
+                "18": {
+                    "style": {
+                        "hAlign": 1,
+                        "vAlign": 1
+                    }
+                },
+                "19": {
+                    "style": {
+                        "hAlign": 1,
+                        "vAlign": 1
+                    }
+                }
+            }
+        },
+        "defaultDataNode": {
+            "style": {
+                "themeFont": "Body"
+            }
+        }
+    },
+    "rowHeaderData": {
+        "defaultDataNode": {
+            "style": {
+                "themeFont": "Body"
+            }
+        }
+    },
+    "colHeaderData": {
+        "defaultDataNode": {
+            "style": {
+                "themeFont": "Body"
+            }
+        }
+    },
+    "spans": [
+        {
+            "row": 1,
+            "rowCount": 2,
+            "col": 0,
+            "colCount": 1
+        },
+        {
+            "row": 1,
+            "rowCount": 2,
+            "col": 1,
+            "colCount": 1
+        },
+        {
+            "row": 1,
+            "rowCount": 2,
+            "col": 2,
+            "colCount": 1
+        },
+        {
+            "row": 1,
+            "rowCount": 2,
+            "col": 3,
+            "colCount": 1
+        },
+        {
+            "row": 1,
+            "rowCount": 2,
+            "col": 4,
+            "colCount": 1
+        },
+        {
+            "row": 1,
+            "rowCount": 2,
+            "col": 5,
+            "colCount": 1
+        },
+        {
+            "row": 1,
+            "rowCount": 2,
+            "col": 6,
+            "colCount": 1
+        },
+        {
+            "row": 1,
+            "rowCount": 2,
+            "col": 7,
+            "colCount": 1
+        },
+        {
+            "row": 1,
+            "rowCount": 2,
+            "col": 8,
+            "colCount": 1
+        },
+        {
+            "row": 1,
+            "rowCount": 1,
+            "col": 9,
+            "colCount": 4
+        },
+        {
+            "row": 1,
+            "rowCount": 1,
+            "col": 13,
+            "colCount": 4
+        },
+        {
+            "row": 1,
+            "rowCount": 2,
+            "col": 17,
+            "colCount": 1
+        },
+        {
+            "row": 1,
+            "rowCount": 2,
+            "col": 18,
+            "colCount": 1
+        },
+        {
+            "row": 1,
+            "rowCount": 2,
+            "col": 19,
+            "colCount": 1
+        },
+        {
+            "row": 0,
+            "rowCount": 1,
+            "col": 0,
+            "colCount": 20
+        }
+    ],
+    "selections": {
+        "0": {
+            "row": 4,
+            "rowCount": 1,
+            "col": 7,
+            "colCount": 1
+        },
+        "length": 1
+    },
+    "index": 1
+}
+}
+}
